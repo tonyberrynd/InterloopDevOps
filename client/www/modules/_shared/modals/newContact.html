@@ -1,0 +1,61 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+            <h3 class="modal-title">New Contact</h3>
+            <p>Enter the following information to create a new contact</p>
+  </div>
+
+<div class="modal-body">
+    
+        <form name="newViewForm" novalidate>
+          <div class="form-group">
+
+            <label for="exampleInputEmail1">Full Name</label>
+            <input type="text" ng-model="selected" placeholder="Full Name" uib-typeahead="name for name in getContacts($viewValue) | limitTo:8" typeahead-on-select="onSelect($item, $model, $label)" typeahead-popup-template-url="customTemplate2.html" class="form-control" typeahead-min-length="2">
+
+
+            </div>
+
+          <div class="form-group">
+            <label for="description">Company (Optional)</label>
+
+          <tags-input max-tags="1" ng-model="companyTags" display-property="name" max-tags="1" allow-leftover-text="false" placeholder="{{companyPlaceholder}}" template="tag-template">
+              <auto-complete source="loadCompanies($query)"></auto-complete>
+          </tags-input>
+
+          </div>
+
+
+        </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+</div>
+
+
+<!-- ///custom templates for -->
+
+<script type="text/ng-template" id="tag-template">
+  <div class="tag-template">
+    <span ng-if="!data.autoComplete"  class="badge">New!</span>
+      <span>{{$getDisplayText()}}</span>
+      <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+  </div>
+</script>
+
+
+
+<script type="text/ng-template" id="customTemplate2.html">
+    <ul class="list-unstyled">
+    <li ng-show="matches.length" style="text-decoration:none; margin:10px 0;">Did you mean? (Click to view this existing record)</li>
+      <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+          ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+        
+        <a href="" ng-bind-html="match.label | uibTypeaheadHighlight:query"></a>
+
+    </li>
+    </ul>
+</script>

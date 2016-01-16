@@ -1,0 +1,79 @@
+<!-- //task list -->
+<div class="task-items" ng-repeat="(key, value) in laterTasks | filter: { isComplete: false} | orderBy:'plannedDate' | groupBy: 'plannedGroup'">
+
+	<p class="group-text">{{key}}</p>
+					 <!-- item -->
+		<div class="task-item" ng-repeat="task in value">
+
+			<div class="task-check">
+			<div class="checkbox">
+			    <label>
+			      <input type="checkbox" ng-model="isComplete" ng-change="completeTask(task)">
+			    </label>
+			  </div>
+			</div>
+		<div class="task-body" ng-click="viewTask(task)">
+
+
+			<div ng-class="{ late: todaysDate.isAfter(task.dueDate)}" ng-if="task.dueDate" class="task-due-date">
+				<icon class="fa fa-flag"></icon>
+				<p>{{ task.dueDate | date : 'medium'}}</p>
+			</div>
+			<!-- description -->
+			<div class="task-description">
+				 <p>{{task.subject}}</p>
+			</div>
+
+			
+		</div>
+
+		
+		<div class="task-actions later pull-right">
+
+				<!-- //add to inbox -->
+				<div ng-click="setNow(task)" class="action now" uib-tooltip-placement="top" uib-tooltip="Move to inbox">
+					<span class="icon_drawer"></span>
+				</div>
+
+				<!-- //plan for later -->
+				<div class="action later" uib-tooltip-placement="top" uib-tooltip="Plan for later...">
+					<span uib-dropdown on-toggle="toggled(open)">
+			      <a href id="simple-dropdown" uib-dropdown-toggle>
+			        <span class="icon_clock_alt"></span>
+			      </a>
+			      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="new-dropdown">
+
+			      	<div class="later-picker" style="width:200px;">
+			      	</div>
+				        <li role="menuitem" ng-click="updatePlanned(value.indexOf(task), task, 'tomorrow')"><a href="" >Tomorrow</a></li>
+				        <li role="menuitem" ng-click="updatePlanned(value.indexOf(task), task, 'weekend')"><a href="" >This Weekend</a></li>
+				        <li role="menuitem" ng-click="updatePlanned(value.indexOf(task), task, 'week')"><a href="" >Next Week</a></li>
+				        <li role="menuitem" ng-click="updatePlanned(value.indexOf(task), task, 'month')"><a href="" >In a Month</a></li>
+				       	<li class="divider"></li>
+				       	<li role="menuitem" ng-click="pickDate()"><a href="" >Pick a date</a></li>
+				      </ul>
+    			</span>
+				</div>
+
+				<!-- //set for someday -->
+				<div ng-click="setSomeday(task)" class="action someday" uib-tooltip-placement="top" uib-tooltip="Someday">
+					<span class="icon_archive_alt"></span>
+				</div>
+
+			</div>
+
+			</div>
+
+
+	</div>
+		<!-- end item -->
+
+
+			<!-- //Empty State -->
+			<div ng-if="!laterTasks.length" class="task-emptyState text-center" ng-cloak>
+				<icon class="icon icon_clock"></icon>
+				<h4>No Later Tasks</h4>
+				<p>Tasks planned for after today will show up here</p>
+			</div>
+
+</div>

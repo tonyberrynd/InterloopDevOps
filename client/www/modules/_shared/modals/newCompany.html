@@ -1,0 +1,39 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+            <h3 class="modal-title">New Company</h3>
+            <p>Enter the following information to create a new company</p>
+  </div>
+
+<div class="modal-body">
+     <form name="newViewForm" novalidate>
+          <div class="form-group typeahead">
+            <label for="exampleInputEmail1">Organization Name</label>
+
+        		<input type="text" ng-model="selected" placeholder="Organization Name" uib-typeahead="name for name in getCompanies($viewValue) | limitTo:8" typeahead-on-select="onSelect($item, $model, $label)" typeahead-popup-template-url="customTemplate.html" class="form-control" typeahead-min-length="2">
+
+
+    		</div>
+	</form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+</div>
+
+
+<!-- ///Custom Templates -->
+
+<script type="text/ng-template" id="customTemplate.html">
+  <ul class="list-unstyled">
+  <li ng-show="matches.length" style="text-decoration:none; margin:10px 0;">Did you mean? (Click to view this existing record)</li>
+  <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+    ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+
+  <a href="" ng-bind-html="match.label | uibTypeaheadHighlight:query"></a>
+
+  </li>
+  </ul>
+</script>

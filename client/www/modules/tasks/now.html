@@ -1,0 +1,163 @@
+<!-- New task bar -->
+<div class="row tasks-enter">
+<!-- 	<input ng-model="newTaskText" type="text" placeholder="New task ..." ng-enter="createNewTask()"> -->
+
+<!-- //new task input -->
+<div style="position:relative;">
+<input  mentio ng-model="newTaskText"
+        mentio-require-leading-space="true"
+        mentio-id="'newTask'"
+        type="text"
+        ng-trim="false"
+        size="100" 
+        ng-enter="createNewTask()" 
+        placeholder="New task ..."/>
+
+<span class="picker-icon">
+	<icon ng-if="taskType == 'Task'" class="fa fa-check"></icon>
+	<icon ng-if="taskType == 'Call'"  class="fa fa-phone"></icon>
+	<icon ng-if="taskType == 'Email'"  class="fa fa-envelope"></icon> 
+	<icon ng-if="taskType == 'Meeting'"  class="fa fa-users"></icon> 
+	<icon ng-if="taskType == 'Demo'" class="fa fa-magic"></icon> 
+</span>
+<select autofocus class="form-control type-picker" ng-model="taskType">
+  <option value="Task" selected>Task</option>
+  <option value="Call">Call</option>
+  <option value="Email">Email</option>
+  <option value="Meeting">Meeting</option>
+  <option value="Demo">Demo</option>
+</select>
+</div>
+
+<!-- //lookup menus -->
+<!-- Leads -->
+<mentio-menu mentio-for="'newTask'"
+    mentio-trigger-char="'@'"
+    mentio-items="lookupLeads"
+    mentio-template-url="modules/_shared/lookups/leadLookup.html"
+    mentio-search="searchLeads(term)"
+    mentio-select="getLeadText(item)">
+</mentio-menu>
+
+<!-- Contact -->
+<mentio-menu mentio-for="'newTask'"
+    mentio-trigger-char="'&'"
+    mentio-items="lookupContacts"
+    mentio-template-url="modules/_shared/lookups/contactLookup.html"
+    mentio-search="searchContacts(term)"
+    mentio-select="getContactText(item)">
+</mentio-menu>
+
+<!-- //end lookup menus -->
+
+</div>
+
+<style type="text/css">
+	.blue-pill {
+		background-color:blue;
+		color:#fff;
+		border-radius:4px;
+		padding:3px;
+	}
+</style>
+
+<!-- //task list -->
+<div class="task-items">
+
+					 <!-- item -->
+		<div class="task-item" ng-repeat="task in tasks | filter: { isComplete: false} | orderBy:'-createdDate'" ng-cloak ng-class="{'selected':$index == selectedRow}">
+	
+
+			<div class="task-check">
+			  <div class="checkbox">
+			    <label>
+			      <input type="checkbox" ng-model="isComplete" ng-change="completeTask(task)">
+			    </label>
+			  </div>
+
+			  
+
+			  <input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" />
+			</div>
+		<div class="task-body" ng-click="viewTask($index, task)">
+
+
+			<div ng-class="{ late: todaysDate.isAfter(task.dueDate)}" ng-if="task.dueDate" class="task-due-date">
+				<icon class="fa fa-flag"></icon>
+				<p>{{ task.dueDate | amDateFormat:'MMMM Do YYYY'}}</p>
+			</div>
+			<!-- description -->
+			<div class="task-description">
+				 <p ng-bind-html="task.subject | lookupLinky"><span ng-if="task.beforeToday">- {{ task.planneDate | amDateFormat:'MMMM Do YYYY'}}</span></p>
+			</div>
+
+			
+			
+		</div>
+
+		 <p>{{date | date:'shortTime' }}</p>
+
+
+		 <div class="task-type-indicator pull-right">
+		 	<icon class="fa fa-check"></icon>
+		 	Task
+		 </div>
+
+		<div class="task-actions now pull-right">
+
+				<!-- //add to inbox -->
+				<div ng-click="setNow(task)"  class="action now" uib-tooltip-placement="top" uib-tooltip="Marked for Now">
+					<span class="icon_drawer"></span>
+				</div>
+
+				<!-- //plan for later -->
+				<div ng-click="setActionSelected($index)" class="action later" uib-tooltip-placement="top" uib-tooltip="Plan for later...">
+					<span uib-dropdown on-toggle="toggled(open)" is-open="status.isopen">
+			      <a href id="simple-dropdown" uib-dropdown-toggle>
+			        <span class="icon_clock_alt"></span>
+			      </a>
+			      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="new-dropdown">
+
+			    
+				        <li ng-if="!datePicker" role="menuitem" ng-click="updatePlanned(tasks.indexOf(task), task, 'tomorrow')"><a href="" >Tomorrow</a></li>
+				        <li ng-if="!datePicker" role="menuitem" ng-click="updatePlanned(tasks.indexOf(task), task, 'weekend')"><a href="" >This Weekend</a></li>
+				        <li ng-if="!datePicker" role="menuitem" ng-click="updatePlanned(tasks.indexOf(task), task, 'week')"><a href="" >Next Week</a></li>
+				        <li ng-if="!datePicker" role="menuitem" ng-click="updatePlanned(tasks.indexOf(task), task, 'month')"><a href="" >In a Month</a></li>
+				       	<li ng-if="!datePicker" class="divider"></li>
+				       	<li ng-if="!datePicker" role="menuitem" ng-click="pickDate(task, $event)"><a href="" >Pick a Date</a></li>
+				 
+
+					     <div class="date-picker" ng-if="datePicker">
+					     	<datetimepicker data-ng-model="data.date" data-on-set-time="onTimeSet(newDate, oldDate)" data-datetimepicker-config="{ minView: 'hour' }"></datetimepicker>
+							<button ng-click="clearDatePicker($event)">Cancel</button> <button ng-click="saveDate(tasks.indexOf(task), task, plannedDate)">Save</button>
+							<p>{{data.date}}</p>
+					     </div>
+
+					    
+				   </ul>
+
+				 
+    			</span>
+				</div>
+
+				<!-- //set for someday -->
+				<div ng-click="setSomeday(tasks.indexOf(task), task)" class="action someday" uib-tooltip-placement="top" uib-tooltip="Someday">
+					<span class="icon_archive_alt"></span>
+				</div>
+
+			</div>
+
+
+	</div>
+	<!-- end item -->
+
+		<!-- //Empty State -->
+			<div ng-if="!(tasks | filter: { isComplete: false}).length" class="task-emptyState text-center" ng-cloak>
+				<icon class="icon icon_drawer"></icon>
+				<h4>Nice! Nothing in your task inbox</h4>
+				<p>Today's tasks and any overdue items will show up here</p>
+			</div>
+		
+
+</div>
+

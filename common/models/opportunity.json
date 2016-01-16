@@ -1,0 +1,64 @@
+{
+  "name": "Opportunity",
+  "plural": "Opportunities",
+  "base": "Entity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "estimatedClose": {
+      "type": "date"
+    },
+    "actualClose": {
+      "type": "date"
+    },
+    "closePercent": {
+      "type": "number"
+    },
+    "value": {
+      "type": "number"
+    },
+    "valuePeriod": {
+      "type": "string"
+    },
+    "valueCurrency": {
+      "type": "string"
+    }, 
+    "contacts": {
+      "type": ["object"]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company"
+    },
+    "oppstage": {
+      "type": "embedsOne",
+      "model": "PicklistItem",
+      "property": "stage"
+    },
+    "oppprocess": {
+      "type": "embedsOne",
+      "model": "Process",
+      "property": "process"
+    }
+  },
+  "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,53 @@
+	<p class="subtitle">Profile</p>
+
+	<form class="form-horizontal">
+	<div class="form-group">
+			    <label for="fullName" class="col-sm-3 text-left control-label"><icon class="fa fa-user"></icon> Full Name</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.fullName" style="margin-bottom:10px;" type="text" class="form-control" id="fullName" placeholder="">
+			    </div>
+			 </div>
+
+			 <div class="form-group">
+			    <label for="email" class="col-sm-3 text-left control-label"><icon class="fa fa-envelope"></icon> Email</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.email" style="margin-bottom:10px;" type="email" class="form-control" id="fullName" placeholder="" disabled>
+			    </div>
+			 </div>
+
+			 <div class="form-group">
+			    <label for="title" class="col-sm-3 text-left control-label"><icon class="fa fa-briefcase"></icon> Title</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.title" style="margin-bottom:10px;" type="text" class="form-control" id="title" placeholder="">
+			    </div>
+			 </div>
+
+			<div class="form-group">
+			    <label for="location" class="col-sm-3 text-left control-label"><icon class="fa fa-map-marker"></icon> Location</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.location" style="margin-bottom:10px;" type="text" class="form-control" id="location" placeholder="">
+			    </div>
+			 </div>
+
+			<div class="form-group">
+			<label for="bio" class="col-sm-3 text-left control-label"><icon class="fa fa-pencil"></icon> About Me</label>
+			    <div class="col-sm-9">
+				      <textarea class="form-control" rows="3" id="comment" ng-model="thisUser.bio"></textarea>
+			    </div>
+			</div>
+
+			<div class="form-group">
+			    <label for="mobile" class="col-sm-3 text-left control-label"><icon class="fa fa-phone"></icon> Mobile</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.mobile" style="margin-bottom:10px;" type="text" class="form-control" id="mobile" placeholder="">
+			    </div>
+			 </div>
+
+			 			<div class="form-group">
+			    <label for="office" class="col-sm-3 text-left control-label"><icon class="fa fa-phone"></icon> Office</label>
+			    <div class="col-sm-9">
+				      <input ng-model="thisUser.office" style="margin-bottom:10px;" type="text" class="form-control" id="office" placeholder="">
+			    </div>
+			 </div>
+
+		</form>

@@ -1,0 +1,51 @@
+	<div class="inner-tab">
+		
+	
+
+	<h4>Application Preferences</h4>
+	<br>
+
+		<!-- form -->
+		<form class="form-horizontal">
+
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-3 text-left control-label"><icon class="fa fa-globe"></icon> Language</label>
+			    <div class="col-sm-9">
+			      <select class="form-control" id="sel1">
+				    <option>English</option>
+				<!--     <option>2</option>
+				    <option>3</option>
+				    <option>4</option> -->
+				  </select>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-3 text-left control-label"><icon class="fa fa-clock-o"></icon> Time Zone</label>
+			    <div class="col-sm-9">
+			     <select class="form-control" name="timezoneSelect" id="timezoneSelect" ng-model="thisUser.timeZone">
+				      <option ng-repeat="zone in timeZones" value="{{zone}}">{{zone}}</option>
+				   </select>
+
+			    </div>
+			  </div>
+			   <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-3 text-left control-label"><icon class="fa fa-lock"></icon> Password</label>
+			    <div class="col-sm-9">
+
+				      <input ng-model="newPassword" style="margin-bottom:10px;" type="password" class="form-control" id="newPassword1" placeholder="New Password">
+				      <input ng-model="newPassword2" type="password" class="form-control" id="newPassword2" placeholder="Confirm New Password">
+
+			    </div>
+			  </div>
+		
+			  <hr>
+			  <div class="form-group">
+			    <div class="col-sm-12 ">
+			      <button type="submit" ng-click="savePrefs()" class="pull-right btn btn-default">Save</button>
+			    </div>
+			  </div>
+			</form>
+			<!-- /form -->
+
+
+			</div>

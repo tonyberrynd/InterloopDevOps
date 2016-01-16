@@ -1,0 +1,31 @@
+{
+  "name": "QualifierItem",
+  "plural": "QualifierItems",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    },
+    "indicator": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "methods": []
+}

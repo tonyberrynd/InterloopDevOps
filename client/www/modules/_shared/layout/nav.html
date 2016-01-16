@@ -1,0 +1,141 @@
+<div class="navBar">
+    
+  <!-- Left Side  -->
+  <div class="navButtons left">
+    
+    <!-- Collapse Buttons -->
+    <div class="collapse-button" ng-click="shrinkToggle()">
+      <i class="bi_editorial-left-align"></i>
+    </div>  
+
+    <!-- Navigator Buttons -->
+    <div class="navigator-buttons" >
+
+      <div class="history-button" ng-click="goBackHistory()" ng-class="{'active': navBack}">
+        <i class="bi_interface-left"></i>
+      </div>
+      <div class="history-button ">
+        <i class="bi_interface-right" ng-click="goForwardHistory()" ng-class="{'active': $window.history.forward()}"></i>
+      </div>
+    </div> 
+
+    <div class="search" ng-class="{'isFocused': searchFocused || isOnSearch || data.searchQuery.length}">
+      <i class="searchIcon bi_interface-search"></i>
+      <input id="globalSearch" type="text" placeholder="Search..." ng-focus="searchFocused = true" ng-blur="searchFocused = false" ng-model="data.searchQuery" ng-keyup="$event.keyCode == 13 ? viewSearchResults() : null">
+      <span class="clearSearchIcon" ng-click="clearSearch()" ng-if="data.searchQuery.length">
+        <i class="bi_interface-cross"></i>
+      </span>
+    </div> 
+
+
+
+  </div>
+  <!-- /left -->  
+
+
+  <!-- right -->       
+  <div class="navButtons right">
+
+    <!-- searchbar -->
+<!--     <div class="search" ng-class="{'isFocused': focused}">
+      <i class="searchIcon bi_interface-search"></i>
+      <input type="text" placeholder="Search..." ng-focus="focused = true" ng-blur="focused = false" ng-model="data.searchQuery" ng-keyup="$event.keyCode == 13 ? viewSearchResults() : null">
+    </div>  -->
+
+    <!-- New Entity -->
+    <div class="newEntity-button" ng-class="{'active': newDropdown.isopen}">
+      <span uib-keyboard-nav uib-dropdown dropdown-append-to-body is-open="newDropdown.isopen" >
+        <a href id="simple-dropdown" uib-dropdown-toggle>
+          New <small><i class="bi_interface-bottom"></i></small>
+        </a>
+         <ul style="margin-top:20px; padding-bottom:10px;" class="dropdown-menu-right uib-dropdown-menu" aria-labelledby="create-dropdown">
+
+          <div class="newDrop">
+            <div class="newEntity" ng-click="newOpportunity()">
+              <a href><icon class="bi_sport-trophy-a"></icon>
+              <p>Opportunity</p>
+              </a>
+            </div>
+
+           <div class="newEntity" ng-click="newCompany()">
+              <a href><icon class="bi_building-office-b"></icon>
+              <p>Organization</p>
+              </a>
+            </div>
+
+             <div class="newEntity" ng-click="newContact()">
+              <a href><icon class="bi_user-alt-group"></icon>
+              <p>Contact</p>
+              </a>
+            </div>
+
+             <div class="newEntity" ng-click="newTask()">
+              <a href><icon class="bi_com-check-box"></icon>
+              <p>Task</p>
+              </a>
+            </div>
+
+             
+            
+          </div>
+            <!-- <p class="dropdown-header">
+              Create New ...
+            </p>
+            <li role="menuitem" ng-click="newOpportunity()"><a href="" ><icon class="icon bi_sport-trophy-a"></icon> Opportunity</a></li>
+            <li role="menuitem" ng-click="newContact()"><a href="" ><icon class="icon bi_user-alt-group"></icon> Contact</a></li>
+            <li role="menuitem" ng-click="newCompany()"><a href="" ><icon class=" bi_building-office-b"></icon> Company</a></li>
+            <li role="menuitem" ng-click="newTask()"><a href="" ><icon class="bi_com-check-box"></icon> Task</a></li> -->
+        </ul>
+      </span>
+    </div>
+           
+    <!-- notification  -->
+    <div class="notification-button" ng-click="viewNotifications()" >
+      <i class="bi_com-bell"></i>
+      <div ng-if="notifications.length" class="bubble"></div>
+    </div>
+
+    <!-- help button -->
+    <div class="notification-button" id="Intercom" ng-click="showIntercom()">
+        <i class="bi_com-help-a"></i>
+    </div>
+
+    <!-- user settings -->
+    <div class="user-button">
+        <span uib-keyboard-nav uib-dropdown dropdown-append-to-body on-toggle="toggled(open)">
+          <a href id="user-dropdown" uib-dropdown-toggle>
+                  <div class="avatar small" ng-class="activeUser.avatar_color">
+                         {{getInitials(activeUser.fullName) }}
+                         <div class="presence" ng-class="{'active' : activeUser.presence == 'active'}"></div>
+                  </div>
+                  <small><i class="bi_interface-bottom"></i></small>
+            </a>
+
+          <ul class="user-settings-dropdown dropdown-menu-right uib-dropdown-menu" aria-labelledby="user-settings-dropdown">
+            <p class="dropdown-header" ng-bind="activeUser.fullName">
+              User Settings
+            </p>
+            <li>
+              <a href ng-click="userSettings()" href>Preferences</a>
+            </li>
+            <li>
+              <a ui-sref="base.profile({userId: activeUser.id})">View Profile</a>
+            </li>
+            <li>
+              <a href>Set yourself offline</a>
+            </li>
+            <li class="divider"></li>
+             <li ng-click="logout()">
+              <a href>Sign out </a>
+            </li>
+          </ul>
+        </span>
+
+    </div>
+
+  </div>
+  <!-- /right -->
+
+</div>
+
+   

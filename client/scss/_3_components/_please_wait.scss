@@ -1,0 +1,184 @@
+.pg-loading-screen {
+// background-image: linear-gradient(-225deg, #48BFF2 0%, #27D39A 100%);
+/* Rectangle 220: */
+// background-image: linear-gradient(-225deg, #199EDA 0%, #48BFF2 50%, #67E1F5 100%);
+background-color:$topaz !important;
+}
+
+.pg-loading-screen .pg-loading-html {
+  margin-top: 30px;
+}
+
+.pg-loading-screen .pg-loading-html p {
+  color: #FFF;
+  font-weight: 400;
+}
+
+.pg-loading-screen .pg-loading-html form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pg-loading-screen .pg-loading-html p.loading-message {
+  font-size: 20px;
+  margin-bottom: 100px;
+}
+
+
+.pg-loading-screen .pg-loading-html .loader {
+	display:inline-block;
+	margin:auto;
+	margin-top:30px;
+}
+
+.pg-loading-logo {
+	max-width:240px;
+  margin-top:120px;
+}
+
+
+//loader
+
+.loop-loader{
+   position: absolute;
+   top: 36%;
+   left:50%;
+   background-size: contain;
+   height: 64px;
+   width: 64px;
+   background-repeat: no-repeat;
+   background-position: center center;
+}
+
+@-webkit-keyframes ball-triangle-path-1 {
+  33% {
+    -webkit-transform: translate(25px, -50px);
+            transform: translate(25px, -50px); }
+
+  66% {
+    -webkit-transform: translate(50px, 0px);
+            transform: translate(50px, 0px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+@keyframes ball-triangle-path-1 {
+  33% {
+    -webkit-transform: translate(25px, -50px);
+            transform: translate(25px, -50px); }
+
+  66% {
+    -webkit-transform: translate(50px, 0px);
+            transform: translate(50px, 0px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+@-webkit-keyframes ball-triangle-path-2 {
+  33% {
+    -webkit-transform: translate(25px, 50px);
+            transform: translate(25px, 50px); }
+
+  66% {
+    -webkit-transform: translate(-25px, 50px);
+            transform: translate(-25px, 50px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+@keyframes ball-triangle-path-2 {
+  33% {
+    -webkit-transform: translate(25px, 50px);
+            transform: translate(25px, 50px); }
+
+  66% {
+    -webkit-transform: translate(-25px, 50px);
+            transform: translate(-25px, 50px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+@-webkit-keyframes ball-triangle-path-3 {
+  33% {
+    -webkit-transform: translate(-50px, 0px);
+            transform: translate(-50px, 0px); }
+
+  66% {
+    -webkit-transform: translate(-25px, -50px);
+            transform: translate(-25px, -50px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+@keyframes ball-triangle-path-3 {
+  33% {
+    -webkit-transform: translate(-50px, 0px);
+            transform: translate(-50px, 0px); }
+
+  66% {
+    -webkit-transform: translate(-25px, -50px);
+            transform: translate(-25px, -50px); }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px); } }
+
+.ball-triangle-path {
+  position: relative;
+  -webkit-transform: translate(-29.994px, -37.50938px);
+      -ms-transform: translate(-29.994px, -37.50938px);
+          transform: translate(-29.994px, -37.50938px); }
+  .ball-triangle-path > div:nth-child(1) {
+    -webkit-animation-name: ball-triangle-path-1;
+            animation-name: ball-triangle-path-1;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+  .ball-triangle-path > div:nth-child(2) {
+    -webkit-animation-name: ball-triangle-path-2;
+            animation-name: ball-triangle-path-2;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+  .ball-triangle-path > div:nth-child(3) {
+    -webkit-animation-name: ball-triangle-path-3;
+            animation-name: ball-triangle-path-3;
+    -webkit-animation-delay: 0;
+            animation-delay: 0;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+  .ball-triangle-path > div {
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    border: 2px solid #fff; }
+    .ball-triangle-path > div:nth-of-type(1) {
+      top: 50px; }
+    .ball-triangle-path > div:nth-of-type(2) {
+      left: 25px; }
+    .ball-triangle-path > div:nth-of-type(3) {
+      top: 50px;
+      left: 50px; }
+

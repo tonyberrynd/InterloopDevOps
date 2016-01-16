@@ -1,0 +1,47 @@
+{
+  "name": "loop-api",
+  "version": "1.1.0",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "jshint ."
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "bower": "^1.7.2",
+    "cfenv": "^1.0.3",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "errorhandler": "^1.1.1",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7",
+    "lb-connector-mandrill": "0.0.3",
+    "lodash": "^3.10.1",
+    "loopback": "^2.14.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-storage": "^1.6.1",
+    "loopback-connector-mongodb": "^1.13.2",
+    "loopback-datasource-juggler": "^2.19.0",
+    "loopback-ds-paginate-mixin": "^1.0.2",
+    "loopback-ds-timestamp-mixin": "^3.2.2",
+    "serve-favicon": "^2.0.1",
+    "shelljs": "^0.5.3",
+    "watson-developer-cloud": "^1.1.2"
+  },
+  "optionalDependencies": {
+    "loopback-explorer": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp-nodemon": "^2.0.4",
+    "jshint": "^2.5.6"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "loop-api"
+}

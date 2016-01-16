@@ -1,0 +1,46 @@
+.dropdown-menu {
+
+		@include animation(fadeIn .1s ease-in);
+		padding:0px;
+		border:solid 1px $limestone;
+
+}
+
+.dropdown-menu>li>a {
+	
+	// padding-left:25px;
+	color:$slate;
+
+	&:focus {
+		outline:none !important;
+	}
+}
+
+.dropdown-header {
+	text-transform: uppercase;
+	color:$gravel;
+	margin: 5px;
+    padding: 0px 10px;
+	font-weight:600;
+	font-size:13px;
+	margin-top:10px;
+
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: $pumice;
+}
+
+
+
+
+
+////date time picker
+
+.datetime-picker-dropdown > li.date-picker-menu {
+	max-width:120px;
+}
+

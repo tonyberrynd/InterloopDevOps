@@ -1,0 +1,358 @@
+
+
+<!-- <div class="subheader">
+	
+</div> -->
+
+<div class="inner">
+
+
+<!-- <div class="innerBar" style="max-width:1000px; padding:10px 20px;margin:auto;">
+	<div class="innerLeft">
+		<small>
+	
+		<span>Status: Open</span>
+		<p><small>Last Interaction 3 Days ago</small></p>
+		
+		</small>
+
+	</div>
+
+	<div class="innerCenter" style="line-height:36px;">
+	</div>
+
+	<div class="innerRight">
+		<small>
+		
+		<span>Probability: 10%</span>
+		<p><small>Medium Confidence</small></p>
+		
+		
+		</small>
+	</div>
+
+</div>
+<hr> -->
+
+<div class="innerContainer">
+	
+	<!-- top -->
+	<div class="row content">
+		<div class="col-xs-12">
+
+
+		<div class="row content-block border-b">
+			<div class="col-xs-12 ">
+
+
+			<div class="top-left">
+
+				<div class="account-mgr" >
+				     <p class="subtitle">Account Manager</p>
+					<div class="avatar" ng-class="currentEntity.currentItem.accountManager.avatar_color">
+					{{getInitials(currentEntity.currentItem.accountManager.value)}}
+					<div class="presence"></div>
+					</div>
+		
+					<p class="accountManager" style="display:inline; padding:0 5px;" ng-bind="currentEntity.currentItem.accountManager.value">No Account Manager <i ui-bclass="bi_interface-bottom"></i></p>	
+
+					<i class="bi_interface-bottom"></i>
+				</div>
+
+			<!-- 		<div class="avatar small amber">TB</div>
+					<div class="avatar small jade">KM</div>
+					<div class="avatar small cobalt">AL</div>
+					<div class="avatar small opal">SF</div>	 -->	
+
+
+			</div>
+
+			<div class="top-right">
+				<div class="followers text-right">
+				   <p class="subtitle">Participants</p>
+					<div style="display:inline-block; background-color:#fff; border-bottom:#f5f7f9; color:#f5f7f9; cursor:pointer;" class="avatar small">+</div>
+
+					<div style="display:inline-block" class="follower">
+						<div class="avatar small amber" >TB<div class="presence"></div></div>
+					</div>
+
+					<div class="follower" style="display:inline-block">
+						<div class="avatar small amber" >TB<div class="presence"></div></div>
+					</div>
+					
+				</div>
+	
+			</div>
+
+			<div class="content-center text-center">
+
+
+				<div class="opp-detail">
+				<!-- /title -->
+				<div class="indicator">
+					<i class="bi_sport-trophy-a"></i>
+				</div>
+				<h3>
+				<span class="title editable" ng-bind="currentEntity.currentItem.name" popover-template="'editName.html'" 
+          		popover-toggle="popover.editName" popover-placement="bottom" ng-click="popover.editName = true" popover-append-to-body="false">Opportunity Name</span>
+				</h3>
+
+				<!-- //company info -->
+				<h5>
+				<i class="bi_building-office-b"></i>	
+				<a href="" class="title" ng-bind="currentEntity.currentItem.company">No Company</a>
+				</h5>
+
+			<!-- 	<div class="statusSelect" ng-click="wonDeal()">
+					<p>Open <i class="statusPicker bi_interface-bottom"></i></p>
+
+				</div> -->
+				</div>
+
+			<!-- 	<h5>$70,000 - 2 Products</h5> -->
+
+
+
+				<div class="row">
+					<div class="col-xs-3 pull-left text-left">
+						
+						<p style="margin:0px;"><small>Value - $USD</small></p>
+						<div class="value editable" popover-template="'editValue.html'" 
+          					popover-toggle="popover.editValue" popover-placement="bottom-left" ng-click="popover.editValue = true" popover-append-to-body="false">{{currentEntity.currentItem.value | currency:"$":0 }}</div>
+						
+						<!-- <span class="products">- 2 Products</span> -->
+					</div>
+					<div class="col-xs-6 text-center">
+						
+				<div class="steps-container">
+					<ol class="steps">
+
+					<li ng-repeat="stage in currentEntity.currentItem.process.stages track by $index" uib-tooltip="{{stage.name}}" data-step="{{stage.order.toString()}}">{{stage.name}}
+					<p ng-if="stage.duration"><small><i class="bi_interface-clock"></i>{{stage.duration}} Days</small></p>
+				  </li>
+
+					<!--   <li class="is-complete" data-step="1">
+					    <b>Chasing</b>
+					    <p><small><i class="bi_interface-clock"></i>3 Days</small></p>
+					  </li>
+					  <li class="is-complete" data-step="2">
+					   <b>Likely</b>
+					  </li>
+					  <li class="is-active" data-step="3">
+					    <b>Step 3</b>
+					  </li>
+					  <li data-step="4">
+					    Step 4
+					  </li>
+					  <li data-step="5" class="steps__last">
+					    Step 5
+					  </li> -->
+					</ol>
+				</div>
+					</div>
+
+					<div class="col-xs-3 pull-right text-right">
+						<p style="margin:0px;"><small><i class="bi_time-calendar"></i> Estimated Close</small></p>
+						<span class="closeDate editable" ng-bind="currentEntity.currentItem.estimatedClose | amDateFormat:'MMMM Do YYYY'" ng-click="openCalendar($event, prop)">No Date Selected</span>
+
+						 <p class="input-group">
+				              <a href uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-click="open1()">
+				              Click Me
+				            </a>
+						
+					</div>
+				</div>
+				
+			</div>
+		
+			</div>	
+		</div>
+    
+    <!-- isOpen is a $scope variable -->
+
+
+		<div class="row content-block shade-block border-b stage-slider" style="padding:15px 25px;">
+
+				     	<div class="leftSlide" ng-click="prevSlide()">
+				     		<i class="bi_interface-left"></i>
+				     	</div>
+				     	<div class="rightSlide" ng-click="nextSlide()">
+				     		<i class="bi_interface-right"></i>
+				     	</div>
+
+			<ks-swiper-container
+		    slides-per-view="3"
+		    space-between="0"
+		    pagination-is-active="false"
+		    pagination-clickable="false"
+		    show-nav-buttons="false"
+		    loop="false"
+		    initial-slide="0"
+		    direction="horizontal" 
+		    swiper="swiper">
+
+				    <ks-swiper-slide class="opp-stage-slide" ng-repeat="stage in currentEntity.currentItem.process.stages">
+
+
+
+					
+						<p class="subtitle text-left" style="color:#333; display: inline;">{{stage.order.toString()}}. {{stage.name}}</p>
+						<p ng-if="stage.completed" style="display:inline;" class="completed-date text-right"><icon class="fa fa-check"></icon> {{stage.completedDate | date:'MM/dd/yyyy'}}</p>
+					    <ul class="list-group">
+							<li class="list-group-item" ng-repeat="step in stage.steps">
+								<input type="checkbox" class="css-checkbox" ng-model="step.completed" ng-change="stepChecked(step)">
+								<label class="css-label" style="margin-right:5px;"></label> 
+								{{step.name}}
+							</li>
+						</ul>	
+				    </ks-swiper-slide>
+				</ks-swiper-container>
+
+
+				
+		</div>
+
+		<div class="row content-block" style="padding:15px 0;">
+			<div class="col-xs-3 border-r">
+
+				<ul class="nav nav-pills nav-stacked">
+				   <li class="active" ng-class="{'active': view_tab == 'details'}">
+		            <a  ng-click="changeTab('details')" href="">Details <span class="badge pull-right">25%</span></a>
+		            
+		           </li>
+		           <li ng-class="{'active': view_tab == 'team'}">
+		            <a ng-click="changeTab('team')" href="">Contacts <span class="badge pull-right">4</span></a>
+		            
+		           </li>
+		           <li ng-class="{'active': view_tab == 'integrations'}">
+		            <a  ng-click="changeTab('integrations')" href="">Tasks <span class="badge pull-right">3</span></a>
+		            
+		           </li>
+		           <li ng-class="{'active': view_tab == 'documents'}">
+		            <a  ng-click="changeTab('documents')" href="">Documents</a>
+		           </li>
+		             <li ng-class="{'active': view_tab == 'customize'}">
+		            <a  ng-click="changeTab('customize')" href="">History</a>
+		           </li>
+				</ul>
+
+
+			</div>	
+			<div class="col-xs-9" style="min-height:400px;">
+			
+
+			<div class="detail-tabs-content" ng-show="view_tab == 'details'">
+				<div class="row detail" ng-repeat="(group, customFields) in currentEntity.customFields | groupBy: 'group'"> 
+					<div class="col-xs-12">
+						<h5 class="subtitle">{{group}}:</h5>
+					</div>
+					<!-- Custom Fields --> 
+					<div style="margin-top:5px;" ng-repeat="customField in customFields" class="no-pad col-xs-6 qual-select">	
+
+						<span class="title">{{customField.label}}</span>
+
+						<select ng-if="customField.type === 'string'" class="form-control" ng-options="item as item.value for item in customField.items track by item.id" 
+							ng-model="currentEntity.currentItem.customFields[customField.name]">
+						</select>
+
+						<div ng-if="customField.type === 'number'">
+						  <input type="number" class="form-control" id="usr" ng-model="currentEntity.currentItem.customFields[customField.name]" >
+						</div>
+						<div ng-if="customField.type === 'multi-select'">
+							
+						  <ui-select multiple ng-model="currentEntity.currentItem.customFields[customField.name]">
+					    <ui-select-match placeholder="Select values...">{{$item.value}}</ui-select-match>
+					    <ui-select-choices repeat="item in customField.items | filter:$select.search">
+					      {{item.value}}
+					    </ui-select-choices>
+					  	</ui-select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+	<!-- //files -->
+	<div class="detail-tabs-content" ng-show="view_tab == 'documents'">
+	<p>Documents</p>
+
+		<button ng-disabled="disableUpload" class="fileUpload btn btn-default btn-block" >
+				    <span><icon class="fa fa-paperclip"></icon> add from your computer</span>
+				    <input type="file" class="upload" nv-file-select uploader="uploader"/>
+				</button>
+
+
+				<div class="attachments">
+					
+				<div class="file-card" ng-repeat="file in thisTask.attachments | orderBy: $index | limitTo: 5">
+				<a href="{{file.url}}" target="_blank">
+					<span class="icon_document_alt"></span>
+					<h3>{{file.name}}</h3>
+					<h5>{{file.size/1024/1024|number:1 }} MB</h5>
+					<!-- <h5 class="pull-right"></h5> -->
+					<!-- //loader -->
+					<div ng-if="$last && uploader.progress > 0" ng-hide="uploader.progress == 100" class="progress" style="">
+	                    <div class="progress-bar" role="progressbar"
+	                         ng-style="{ 'width': uploader.progress + '%' }"></div>
+	                </div>
+				</a>
+				<div class="file-download" uib-tooltip-placement="left" uib-tooltip="Download File">
+				<a href="">
+					<icon class="fa fa-arrow-circle-o-down"></icon>
+				</a>
+				</div>
+			</div>
+
+		</div>
+
+
+	
+</div>
+	
+
+</div>
+
+			</div>	
+		</div>
+
+
+		</div>
+	</div>
+
+
+	<!-- //edit name -->
+	    <script type="text/ng-template" id="editName.html">
+		<form role="form">
+		  <div class="form-group">
+		    <label for="value">Name</label>
+		    <input ng-model="currentEntity.currentItem.name" type="text" class="form-control" id="value">
+		  </div>
+		</form>
+		<div class="confirm">
+			<a href style="display:inline-block" class="subtitle" ng-click="$parent.popover.editName = false">Cancel</a>
+			<a href style="display:inline-block" class="subtitle save">Save</a>
+		</div>
+    </script>
+
+
+    <!-- //edit value -->
+    <script type="text/ng-template" id="editValue.html">
+		<form role="form">
+		  <div class="form-group">
+		    <label for="value">Value</label>
+		    <input ng-model="currentEntity.currentItem.value" type="text" class="form-control" id="value">
+		  </div>
+		</form>
+		<div class="confirm">
+			<a href style="display:inline-block" class="subtitle" ng-click="$parent.popover.editValue = false">Cancel</a>
+			<a href style="display:inline-block" class="subtitle save">Save</a>
+		</div>
+    </script>
+
+
+

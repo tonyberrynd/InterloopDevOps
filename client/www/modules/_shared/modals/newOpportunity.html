@@ -1,0 +1,96 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+            <h3 class="modal-title">New Opportunity</h3>
+            <p>Enter the following information to create a new opportunity</p>
+  </div>
+
+<div class="modal-body">
+            <form name="newOppForm" novalidate>
+
+	<div class="row">
+		
+	
+        <!-- //company typeahead -->
+          <div class="form-group typeahead col-xs-12">
+            <label for="description">Company (Optional)</label>
+<!-- 
+          <input autofocus type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control"> -->
+       
+
+          <tags-input autofocus max-tags="1" ng-model="companyTags" display-property="name" allow-leftover-text="false" placeholder="{{companyPlaceholder}}" template="company-tag-template" replace-spaces-with-dashes="false">
+              <auto-complete source="loadCompanies($query)"></auto-complete>
+          </tags-input>
+          <small>Press tab <icon class="bi_interface-login"></icon> to confirm selection or Create New</small>
+
+             </div>
+
+          
+
+          <div class="form-group col-xs-12">
+            <label for="stakeholders">Stakeholders</label>
+      
+           <tags-input class="lg-tags" ng-model="contactTags" display-property="fullName" allow-leftover-text="false" placeholder="{{contactPlaceholder}}" template="contact-tag-template" style="height:72px;" replace-spaces-with-dashes="false">
+              <auto-complete source="loadContacts($query)"></auto-complete>
+          </tags-input>
+          <small>Press tab <icon class="bi_interface-login"></icon> to confirm selections</small>
+          </div>
+
+
+
+
+
+
+          <div class="form-group col-xs-12">
+            <label for="exampleInputEmail1">Opportunity Name</label>
+            <input name="viewName" type="text" class="form-control" placeholder="Opportunity Name" ng-model="newOpp.name" required>
+            <small>unique name that describes opportunity</small>
+          </div>
+
+           <div class="form-group col-xs-6">
+            <label for="exampleInputEmail1">Opportunity Value</label>
+            <input type="text" fcsa-number="{ prepend: '$' }" ng-model="newOpp.value" name="numberPrepend" class="form-control"  placeholer="$$$" />
+     
+          </div>
+
+            <div class="form-group col-xs-6">
+            <label for="exampleInputEmail1">Estimated Close Date</label>
+            <input  name="viewName" type="date" class="form-control" placeholder="Date" ng-model="newOpp.close" required>
+        
+          </div>
+
+
+            </div>
+
+        </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+</div>
+
+
+<img gravatar-src-once="user.email">
+
+<!-- //custom templates -->
+
+<!-- company template -->
+<script type="text/ng-template" id="company-tag-template">
+  <div class="tag-template">
+    <span ng-if="!data.autoComplete"  class="badge">New!</span>
+      <span>{{$getDisplayText()}}</span>
+      <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+  </div>
+</script>
+
+<!-- //contact tempalte -->
+<script type="text/ng-template" id="contact-tag-template">
+  <div class="tag-template">
+    <span ng-if="!data.autoComplete"  class="badge">New!</span>
+      <img gravatar-size="20" gravatar-src-once="data.email" style="border-radius:50%;">
+      <span>{{$getDisplayText()}}</span>
+      <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+  </div>
+</script>

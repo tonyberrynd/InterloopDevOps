@@ -1,0 +1,41 @@
+{
+  "name": "View",
+  "plural": "Views",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created_date",
+      "updatedAt": "updated_date",
+      "required": false
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "entityType": {
+      "type": "string",
+      "required": true
+    },
+    "columnDefs": {
+      "type": [
+        "ColDefItem"
+      ]
+    },
+    "query": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

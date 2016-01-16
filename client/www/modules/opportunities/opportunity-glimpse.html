@@ -1,0 +1,202 @@
+<div class="side-panel">
+
+<div class="side-panel">
+
+  <div class="panel-head">
+    <div class="panel-close">
+      <button type="button" class="btn btn-clear closeIt" data-ng-click="panels.close()"><icon class="bi_interface-cross"></icon></button>
+    </div>
+    <div class="sidepanel-title">
+      Opportunity Detail
+
+    </div>
+    <div class="panel-save">
+
+    </div>
+
+	<!-- //panel saver -->
+	<div class="saving-loader">
+		<div class="sk-fading-circle">
+		  <div class="sk-circle1 sk-circle"></div>
+		  <div class="sk-circle2 sk-circle"></div>
+		  <div class="sk-circle3 sk-circle"></div>
+		  <div class="sk-circle4 sk-circle"></div>
+		  <div class="sk-circle5 sk-circle"></div>
+		  <div class="sk-circle6 sk-circle"></div>
+		  <div class="sk-circle7 sk-circle"></div>
+		  <div class="sk-circle8 sk-circle"></div>
+		  <div class="sk-circle9 sk-circle"></div>
+		  <div class="sk-circle10 sk-circle"></div>
+		  <div class="sk-circle11 sk-circle"></div>
+		  <div class="sk-circle12 sk-circle"></div>
+		</div>
+		<icon class="fa fa-check"></icon>
+		Saving...
+	</div>
+
+
+
+  </div>
+
+
+
+	<div class="panel-body grey">
+
+	<!-- panel grid -->
+	<div class="panel-grid">
+
+		<!-- Task Subject -->
+		<div class="row subject">
+			<div class="col-xs-12 text-center" style="padding-left:15px;">
+			<small>Current Stage:</small>
+				<p>{{currentEntity.currentItem.stage.order.toString()}}. {{currentEntity.currentItem.stage.value}}</p>
+			</div>
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail " >
+			<div class="col-xs-6 border-r" >
+				<span class="title">
+					Account Manager
+				</span>
+				<select class="form-control" ng-options="item as item.value for item in currentEntity.pickLists.accountManager.items track by item.id" 
+					ng-model="currentEntity.currentItem.accountManager">
+				</select>
+			</div>
+
+			<div class="col-xs-6">
+			<span class="title">
+				Stage
+			</span>
+			<select class="form-control" ng-options="item as item.value for item in currentEntity.pickLists.stage.items track by item.id" 
+					ng-model="currentEntity.currentItem.stage">
+				</select>
+			</div>
+		</div>
+
+		<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Contacts
+			</span>
+			<a href="">Add a contact ...</a>
+			</div>
+		</div>
+
+
+	<div class="row detail" ng-repeat="(group, customFields) in currentEntity.customFields | groupBy: 'group'"> 
+		<div class="col-xs-12">
+			<h5>{{group}}:</h5>
+		</div>
+		<!-- Custom Fields --> 
+		<div style="margin-top:5px;" ng-repeat="customField in customFields" class="no-pad col-xs-6 qual-select">	
+
+			<span class="title">{{customField.label}}</span>
+
+			<select ng-if="customField.type === 'string'" class="form-control" ng-options="item as item.value for item in customField.items track by item.id" 
+				ng-model="currentEntity.currentItem.customFields[customField.name]">
+			</select>
+
+			<div ng-if="customField.type === 'number'">
+			<!--   <label for="usr">Name:</label> -->
+			  <input type="number" class="form-control" id="usr" ng-model="currentEntity.currentItem.customFields[customField.name]" >
+			</div>
+
+			<div ng-if="customField.type === 'multi-select'">
+				
+			  <ui-select multiple ng-model="currentEntity.currentItem.customFields[customField.name]">
+		    <ui-select-match placeholder="Select values...">{{$item.value}}</ui-select-match>
+		    <ui-select-choices repeat="item in customField.items | filter:$select.search">
+		      {{item.value}}
+		    </ui-select-choices>
+		  	</ui-select>
+		 	 <!--
+			 <input type="text" class="form-control" id="usr">
+			 -->
+			</div>
+		</div>
+	</div>
+
+
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<h5>Qualifiers</h5>
+			</div>
+
+			<!-- Qualifiers --> 
+			<div class="row detail">
+			<div ng-repeat="qualifier in currentEntity.qualifiers" class="no-pad col-xs-6 qual-select">	
+
+				<label for="" class="title">{{qualifier.name}}</label>
+
+				<select class="form-control" ng-options="item as item.name for item in qualifier.items track by item.id" 
+					ng-model="currentEntity.currentItem.qualifiers[qualifier.name]">
+				</select>
+			</div>
+		</div>
+			<!-- end row -->
+		
+
+				<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Tasks
+			</span>
+			<a href="">Add a task ...</a>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+</div>
+
+		<!-- row -->
+	
+	<div class="panel-footer">
+	<p class="title"><small>OPPORTUNITY HISTORY</small></p>
+
+			<div class="feed-item" ng-repeat="item in thisTask.feed | orderBy: '-date'">
+				<div class="feed-icon">
+					<icon ng-if="item.type == 'created'" class="fa fa-plus"></icon>
+					<icon ng-if="item.type == 'file'" class="fa fa-cloud-upload"></icon>
+					<icon ng-if="item.type == 'assigned'" class="fa fa-mail-forward"></icon>
+					<icon ng-if="item.type == 'due'" class="fa fa-flag"></icon>
+					<icon ng-if="item.type == 'lead'" class="fa fa-building"></icon>
+					<icon ng-if="item.type == 'contact'" class="fa fa-user"></icon>
+					<icon ng-if="item.type == 'complete'" class="fa fa-check"></icon>
+					<icon ng-if="item.type == 'uncomplete'" class="fa fa-square-o"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>{{item.user}}</b> {{item.action}}</p>
+					<p ng-if="item.comment"><i>{{item.comment}}</i></p>
+					<p class="feed-date"><small>{{item.date | amDateFormat:'MMMM Do YYYY h:mm'}}</small></p>
+				</div>
+			</div>
+
+
+
+			<!-- //allows have created date -->
+
+			<div class="feed-item">
+				<div class="feed-icon">
+					<icon class="fa fa-plus"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>Opportunity Created<b></p>
+					<p class="feed-date"><small>{{currentEntity.currentCompany.created_date | amDateFormat:'MMMM Do YYYY h:mm A'}}</small></p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+

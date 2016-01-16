@@ -1,0 +1,31 @@
+{
+  "name": "CustomFieldItem",
+  "plural": "CustomFieldItems",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "any"
+    },
+    "order": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

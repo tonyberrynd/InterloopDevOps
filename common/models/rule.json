@@ -1,0 +1,49 @@
+{
+  "name": "Rule",
+  "plural": "Rules",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "useWith": {
+      "type": [
+        "string"
+      ]
+    },
+    "inputObj": {
+      "type": "object"
+    }, 
+    "updateField": {
+      "type": "string"
+    },
+    "fields": {
+       "type": ["string" ]
+    },
+    "action": {
+       "type": "object" 
+    },
+    "ruleTrigger": {
+       "type": "object" 
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "mixins": {
+    "TimeStamp" : {
+      "createdAt" : "createdOn",
+      "updatedAt" : "updatedOn",
+      "required" : false
+    }
+  },
+  "acls": [],
+  "methods": []
+}

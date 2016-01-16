@@ -1,0 +1,88 @@
+.search-bar {
+    border-radius: 35px;
+
+    .form-group {
+    	margin:0px;
+    }
+
+    .searchIcon {
+    	position: absolute;
+    	left:20px;
+    	top:8px;
+
+    }
+
+    input {
+    	border-radius: 24px;
+        padding: 18px;
+        padding-left:36px;
+    }
+}
+
+.search-results {
+    height: calc(100vh - 125px);
+    overflow: auto;
+    padding:10px 0;
+}
+
+
+.search-card {
+    width:100%;
+    display: block;
+    min-height: 50px;
+    background-color:$diamond;
+    padding:5px;
+    color:$gravel;
+    margin-bottom:5px;
+    position: relative;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+    h3 {
+        margin:5px;
+        font-size:15px;
+        color:$topaz;
+        font-weight: 600;
+    }
+
+    p {
+        margin:5px;
+    }
+
+    .goToCard {
+        position: absolute;
+        right:10px;
+        top:20px;
+        font-size:16px;
+        color:$gravel;
+        opacity: 0;
+    }
+
+}
+
+.result-type {
+    position: absolute;
+    left:0px;   
+    width:50px;
+    display: inline-block;
+}
+
+.result-details {
+    position: absolute;
+    left:50px;
+    display: inline-block;
+}
+
+.search-card:hover {
+    background-color:lighten($limestone, 1%);
+
+    .goToCard {
+        opacity: 1;
+    }
+}
+
+      .search-card.ng-enter {
+        @include animation(fadeInUpBig);
+            
+    }

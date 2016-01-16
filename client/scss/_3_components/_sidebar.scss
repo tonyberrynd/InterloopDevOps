@@ -1,0 +1,419 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+//sidebar
+.sidebar {
+  @include transition(all 0.25s ease-in-out);
+  position:relative;
+  width:215px;
+  background: $sapphire;
+  color:$diamond;
+  z-index:$zIndex-sidebarBody;
+
+
+
+  //scrollbars
+::-webkit-scrollbar {
+    width: 10px;
+    // margin-right:3px;
+    // border:solid 4px #fff;
+    z-index: 99999;
+    background-color:$sapphire;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color:$sapphire;
+    border:3px solid $sapphire;
+    border-radius: 20px;
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb {
+  color:#fff;
+  border:3px solid $sapphire;
+  background-color:$sapphire;
+  border-radius:20px;
+  min-height:12px;
+}
+ 
+
+ &:hover {
+  ::-webkit-scrollbar-track {
+    background-color: lighten($sapphire, 5%);
+    border:3px solid lighten($sapphire, 5%);
+    border-radius: 20px;
+    width:10px;
+  }
+
+   ::-webkit-scrollbar-thumb {
+    color:#fff;
+    border:2px solid $sapphire;
+    background-color:$pumice;
+    border-radius:20px;
+    min-height:12px;
+  }
+ }
+
+
+
+
+
+  &.shrink {
+  width:60px;
+
+  ::-webkit-scrollbar {
+    display:none;
+  }
+
+  .sidebar-nav li.item.active a {
+    margin:0px;
+    border-radius: 0px;
+  }
+  
+  .sidebar-header {
+    width:60px;
+
+    &.isScrolled {
+      box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+      -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+    }
+
+    h3 {
+      display: none;
+    }
+
+    h5 {
+      display: none;
+    }
+
+    .activeUser {
+      display: none;
+    }
+
+    .activeInitials {
+      display: inline;
+    }
+
+    .img-sm {
+      display: block;
+    }
+
+    .img-lg {
+      display: none;
+    }
+
+  }
+
+  .sidebar-nav {
+    width:60px;
+
+    li.item span {
+    display: none;
+    }
+
+    li.item:hover .toHide {
+      display: none;
+    }
+
+    li.title {
+      padding-left:10px;
+      // text-align: center;
+    }
+
+    li.title .count {
+      display: none;
+    }
+
+    li.title .all {
+    display: none;
+    }
+  }
+  }
+
+
+
+//--header
+.sidebar-header {
+   @include transition(all 0.25s ease-in-out);
+    position: absolute;
+    background-color:$sapphire;
+    top:0;
+    width:215px;
+    height: 54px;
+    padding:16px;
+    padding-bottom:12px;
+    z-index:$zIndex-sidebarHeader;
+
+    &:hover {
+    	background-color: lighten($sapphire, 3%);
+    	cursor:pointer;
+    }
+
+    &.isScrolled {
+    	-moz-box-shadow:0 2px 1px rgba(0,0,0,0.2);
+     	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+     	box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+    } 
+}
+
+.sidebar-header h3 {
+	@include ellipsis(100%);
+	max-width: 164px;
+	font-weight:900;
+}
+
+.sidebar-header .avatar {
+  position: absolute;
+  top:44px;
+  left:15px;
+
+  .presence {
+    right:-5px;
+  }
+}
+
+.sidebar-header h5 {
+	@include ellipsis(100%);
+	max-width: 180px;
+	font-weight:400;
+  position: absolute;
+  left:15px;
+  top:48px;
+}
+
+.sidebar-header .img-sm {
+  display: none;
+    width: 34px;
+    margin-bottom: 6px;
+    margin-left: -5px;
+    margin-top: -2px;
+}
+
+.sidebar-header .img-lg {
+  width:136px;
+  margin-top:-2px;
+}
+
+.sidebar-header .activeInitials {
+  display: none;
+}
+
+.sidebar-header .presence {
+	margin-right:3px;
+}
+
+.sidebar-header .settings {
+	position: absolute;
+	right:12px;
+	top: 20px;
+	font-size:14px;
+	color:$gravel;
+}
+
+.sidebar-header h3 {
+	font-size:18px;
+	color: $diamond;
+	margin:0px;
+	margin-bottom:3px;
+}
+
+.sidebar-header h5 {
+	font-size:14px;
+	color: $diamond;
+	margin:0px;
+}
+
+
+//--nav
+.sidebar-nav {
+    @include transition(all 0.25s ease-in-out);
+    position: absolute;
+    top: 54px;
+    bottom:0px;
+    width: 215px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+  	display:none;
+      width:8px;
+      position: fixed;
+      right:0px;
+      visibility: hidden;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $flint;
+      border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $limestone;
+      border-radius: 8px;
+  }
+
+  &:hover {
+  	::-webkit-scrollbar {
+  	 display:block;
+      
+ 	 }
+  }
+}
+
+.sidebar-nav li {
+    line-height: 30px;
+    font-weight:400;
+    min-height: 30px;
+}
+
+.sidebar-nav li .avatar {
+  opacity: .9;
+}
+
+.sidebar-nav li:hover .avatar {
+  opacity: 1;
+}
+
+.sidebar-nav li .icon {
+	font-size:16px;
+}
+
+.sidebar-nav li .presence {
+	margin:0 8px;
+}
+
+.sidebar-nav li.title {
+    text-transform: uppercase;
+    padding-left:15px;
+    font-weight:700;
+    font-size:.9em;
+    color:rgba(255,255,255,.9);
+    position: relative;
+}
+
+.sidebar-nav li.title .count {
+	display: inline;
+	font-weight:700;
+	color:$flint;
+}
+
+.sidebar-nav li.title .all {
+	position: absolute;
+  right:0px;
+    // margin-right: 15px;
+    font-size: 15px;
+	cursor:pointer;
+	color:$gravel;
+
+	&:hover {
+		color:$diamond;
+	}
+}
+
+.sidebar-nav li.item span {
+	position: absolute;
+	left:48px;
+  font-weight:600;
+  @include ellipsis(60%);
+}
+
+.sidebar-nav li.item a {
+    display: block;
+    text-decoration: none;
+    color: darken($pumice, 5%);
+    padding:0 16px;
+    font-size:14px;
+
+    &:hover {
+	    color: $diamond;
+	    background: lighten($sapphire, 3%);
+      opacity: 1;
+
+	    .toHide {
+	    	display: block;
+	    }
+    }
+}
+
+.sidebar-nav li.item a .toHide {
+	 display: none;
+	 float:right;
+	 color:$gravel;
+	 cursor:pointer;
+     font-size: 15px;
+     margin-right:-15px;
+
+     &:hover {
+     	color:$diamond;
+     }
+}
+
+.sidebar-nav li.item.active a {
+
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin-right: 1px;
+	background: $topaz;
+	color:$diamond;
+	opacity: 1;
+  font-weight:600;
+
+	&:hover {
+	background: $topaz;	
+	}
+
+  .viewIcon {
+    color:$diamond;
+    border-color:$diamond;
+  }
+
+  [class^="bi_"]:before, 
+  [class*=" bi_"]:before {
+    font-weight:900 !important;
+  }
+}
+
+.sidebar-nav li.view .viewIcon {
+	font-size:13px;
+	display: inline-block;
+	font-weight:600;
+	border-radius: 50%;
+	border:solid 1px darken($pumice, 5%);;
+	color:darken($pumice, 5%);
+	width: 24px;
+    height: 24px;
+    margin-top: 0px;
+    line-height: 23px;
+    text-align:center;
+}
+
+.sidebar-nav li.view .viewIcon .icon {
+    font-size: 13px;
+}
+
+.sidebar-nav li.view:hover .viewIcon {
+	color:$diamond;
+	border-color:$diamond;
+}
+
+.sidebar-nav li.divider {
+	height: 20px;
+}
+
+
+}
+
+
+.settings-dropdown {
+  left: 154px !important;
+  top: 50px !important;
+  padding-bottom:10px;
+}
+
+.settings-dropdown.shrink {
+  left: 44px !important;
+  top: 50px !important;
+}

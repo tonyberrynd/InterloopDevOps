@@ -1,0 +1,53 @@
+<div class="side-panel">
+
+  <div class="panel-head">
+    <div class="panel-close">
+      <button type="button" class="btn btn-clear closeIt" data-ng-click="panels.close()"><icon class="bi_interface-cross"></icon></button>
+    </div>
+    <div class="sidepanel-title">
+      Notifications
+
+
+<!--       <button class="btn btn-clear" ng-click="resetFilters()" tooltip-placement="bottom" uib-tooltip="Reset to original settings"><icon class="fa fa-undo"></icon>
+      </button> -->
+    </div>
+    <div class="panel-save">
+<!--       <button type="button" class="close" data-ng-click="applyFilters(shownColumns.fields)" tooltip-placement="bottom" uib-tooltip="Apply Filters">Apply</button> -->
+    </div>
+  </div>
+
+
+  <!-- //panel sub header -->
+<!-- <div class="panel-sub">
+  <div class="leftSide">
+    <i class="bi_interface-reverse"></i>
+  </div>
+  
+  <div class="rightSide">
+<small><p>MARK ALL AS READ</p></small>
+</div> -->
+    
+</div>
+	
+
+	<div class="panel-body">
+
+	<div class="notification" ng-class="{'unread': notification.unread}" ng-repeat="notification in notifications">
+		<icon ng-if="notification.unread" class="fa fa-circle"></icon>
+		<div class="notification-body unread" >
+			<p ng-bind-html="notification.subject"></p>
+			<p><small am-time-ago="notification.created_date"></small></p>
+		</div>	
+	</div>
+
+
+	<div class="empty-state">
+		<icon class="bi_com-bell"></icon>
+		<p>Currently No Notifications</p>
+	</div>
+
+
+	</div>
+
+</div>
+

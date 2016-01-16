@@ -1,0 +1,47 @@
+{
+  "name": "Company",
+  "plural": "Companies",
+  "base": "Entity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contacts": {
+      "type": "hasMany",
+      "model": "Contact",
+      "foreignKey": ""
+    }, 
+    "opportunities": {
+      "type": "hasMany",
+      "model": "Opportunity",
+      "foreignKey": ""
+    }
+  },
+  "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },  "acls": [],
+  "methods": []
+}

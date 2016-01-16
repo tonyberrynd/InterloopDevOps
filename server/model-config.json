@@ -1,0 +1,139 @@
+{
+  "_meta": {
+    "sources": [
+      "testpoly/common/models",
+      "testpoly/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "testpoly/common/mixins",
+      "testpoly/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongoDB"
+  },
+  "Appuser": {
+    "dataSource": "mongoDB",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "AccessToken": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+   "Org": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Company": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Contact": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Opportunity": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "OppContactLink": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+   "Goal": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+   "Analytics": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Entity": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "Picklist": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "PicklistItem": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "Notification": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Activity": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "ActivityLink": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "View": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "ColDefItem": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "Qualifier": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "QualifierItem": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "Rule": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+   "Process": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "CustomField": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "CustomFieldItem": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "Email": {
+    "dataSource": "mandrill",
+    "public": false
+  }, 
+    "Personality": {
+    "dataSource": "db",
+    "public": true
+  }, 
+    "Container": {
+    "dataSource": "cloudStore",
+    "public": true
+  }
+}

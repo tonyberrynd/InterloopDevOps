@@ -1,0 +1,45 @@
+<div class="side-panel">
+
+  <div class="panel-head">
+    <div class="panel-close">
+      <button type="button" class="btn btn-clear closeIt" data-ng-click="panels.close()"><icon class="bi_interface-cross"></icon></button>
+    </div>
+    <div class="sidepanel-title">
+      Adjust Columns 
+
+
+<!--       <button class="btn btn-clear" ng-click="resetFilters()" tooltip-placement="bottom" uib-tooltip="Reset to original settings"><icon class="fa fa-undo"></icon>
+      </button> -->
+    </div>
+    <div class="panel-save">
+<!--       <button type="button" class="close" data-ng-click="applyFilters(shownColumns.fields)" tooltip-placement="bottom" uib-tooltip="Apply Filters">Apply</button> -->
+    </div>
+  </div>
+
+
+  <!-- //panel sub header -->
+<div class="panel-sub">
+  <div class="leftSide">
+    <i class="bi_interface-reverse" uib-tooltip="Reset Columns" class="bi_interface-reverse" ng-click="resetColumns()"></i>
+  </div>
+  
+  <div class="rightSide">
+<!--     <i class="bi_doc-download"></i>
+    <i class="bi_doc-upload"></i> -->
+</div>
+    
+</div>
+	
+
+	<div class="panel-body md-padding">
+
+		<div class="checkbox" ng-repeat="columnItem in currentEntity.gridOptions.columnDefs">
+		<label>
+  		<input type="checkbox" ng-checked="!columnItem.hide" ng-click="toggleColumn(columnItem)"> {{columnItem.headerName}}
+		</label>
+		</div>
+
+	</div>
+
+</div>
+

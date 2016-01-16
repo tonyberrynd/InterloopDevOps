@@ -1,0 +1,40 @@
+{
+  "name": "Picklist",
+  "plural": "Picklists",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "useWith": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pickListItems": {
+      "type": "embedsMany",
+      "model": "PicklistItem",
+      "property": "items",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
+    }
+  },
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

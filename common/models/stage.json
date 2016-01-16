@@ -1,0 +1,59 @@
+{
+  "name": "Stage",
+  "plural": "Stages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    }, 
+    "order": {
+      "type": "number"
+    },
+    "useWith": {
+      "type": [
+        "string"
+      ]
+    },
+    "completed": {
+      "type": "boolean"
+    }, 
+    "startedDate": {
+      "type": "date"
+    }, 
+    "completedDate": {
+      "type": "date"
+    },
+    "showInRefine": { 
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "_steps": {
+      "type": "embedsMany",
+      "model": "Step",
+      "property": "steps",
+      "options": {
+        "validate": true,
+        "persistent": true,
+        "forceId": true
+      }
+    }
+  },
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

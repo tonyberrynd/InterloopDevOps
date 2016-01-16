@@ -1,0 +1,47 @@
+{
+  "name": "Qualifier",
+  "plural": "Qualifiers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    },
+    "useWith": {
+      "type": [
+        "string"
+      ]
+    }, 
+    "showInRefine": { 
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "_items": {
+      "type": "embedsMany",
+      "model": "QualifierItem",
+      "property": "items",
+      "options": {
+        "validate": true,
+        "persistent": true,
+        "forceId": true
+      }
+    }
+  },
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

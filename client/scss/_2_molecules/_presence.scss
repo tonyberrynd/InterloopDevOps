@@ -1,0 +1,13 @@
+.presence {
+	display: inline-block;
+	width:8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: $pumice;
+	margin-right:3px;
+}
+
+.presence.active {
+	@extend .presence;
+	background-color:$emerald;
+}

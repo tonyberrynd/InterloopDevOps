@@ -1,0 +1,45 @@
+<!-- //task list -->
+<small style="float:right; text-transform:uppercase; color:#9BAFBB; margin-right:20px; margin-top:15px;">{{maxItems}} completed tasks</small>
+
+
+<div class="task-items" ng-repeat="(key, value) in tasks | groupBy: 'completedGroup'">
+
+	<p class="group-text">{{key}}</p>
+					 <!-- item -->
+		<div class="task-item complete" ng-repeat="task in value">
+	
+
+
+			<div class="task-check">
+			<div class="checkbox">
+			    <label>
+			      <input type="checkbox" ng-model="isComplete" ng-change="notComplete($index, task)" checked>
+			    </label>
+			  </div>
+			</div>
+		<div class="task-body" ng-click="viewTask(task)">
+
+
+			<div ng-if="task.dueDate" class="task-due-date">
+				<icon class="fa fa-flag"></icon>
+				<p>{{ task.dueDate | amDateFormat:'MMMM Do YYYY'}}</p>
+			</div>
+			<!-- description -->
+			<div class="task-description">
+				 <p>{{task.subject}}</p>
+			</div>
+
+			<div class="completed-time">
+				<p>{{task.completedDate | amDateFormat: "h:mm a" }}</p>
+			</div>
+		</div>
+	</div>
+		<!-- end item -->
+
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<button style="margin-bottom:10px" ng-click="loadMore()" ng-if="maxItems >= 20" ng-hide="!canLoad" class="btn btn-block btn-default" ng-cloak>Load More</button>
+	</div>
+</div>
+

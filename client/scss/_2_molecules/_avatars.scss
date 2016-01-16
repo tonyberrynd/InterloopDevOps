@@ -1,0 +1,68 @@
+
+
+.avatar {
+	width:32px;
+	height:32px;
+	background-color:$topaz;
+	border-radius: 50%;
+	line-height: 34px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	color:$diamond !important;
+	font-weight:900;
+	font-family:$font-round;
+
+	&.small {
+		width:24px;
+		height:24px;
+		line-height: 24px;
+
+		.presence {
+			right:-10px;
+		}
+	}
+
+	&.large {
+		width:54px;
+		height:54px;
+		line-height: 54px;
+	}
+
+
+	.presence {
+		position:absolute;
+		bottom:0px;
+		right:-5px;
+		border:1px solid $diamond;
+	}
+}
+
+.avatar-block {
+	p {
+		margin:0px;
+		display: block;
+		float:left;
+		line-height: 50px;
+	}
+}
+
+.avatar.emerald {
+	background-color:$emerald;
+}
+
+.avatar.amber {
+	background-color:$amber;
+}
+
+.avatar.cobalt {
+	background-color:$cobalt;
+}
+
+.avatar.jade {
+	background-color:$jade;
+}
+
+.avatar.opal {
+	background-color:$opal;
+}

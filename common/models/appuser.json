@@ -1,0 +1,73 @@
+{
+  "name": "Appuser",
+  "plural": "Appusers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "mobilePhone": {
+      "type": "string"
+    },
+    "officePhone": {
+      "type": "string"
+    },
+    "avatar_color": {
+      "type": "string"
+    },
+    "recentSearches": {
+      "type": [
+        "string"
+      ]
+    },
+    "connections": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+    "mixins": {
+      "TimeStamp" : true
+    },
+     "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById"
+      ]
+    }
+  ],
+  "methods": []
+}

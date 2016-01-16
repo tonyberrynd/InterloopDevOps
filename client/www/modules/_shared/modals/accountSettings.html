@@ -1,0 +1,53 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+       <h3 class="modal-title">Account Settings</h3>
+  </div>
+
+<div class="modal-body no-pad text-center" style="min-height:300px;">
+
+<div class="row">
+	<div class="col-xs-3 text-left" style="padding:10px;">
+		<ul class="nav nav-pills nav-stacked">
+		   <li ng-class="{'active': view_tab == 'general'}">
+            <a  ng-click="changeTab('general')" href="">General</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'team'}">
+            <a ng-click="changeTab('team')" href="">Manage Team</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'integrations'}">
+            <a  ng-click="changeTab('integrations')" href="">Integrations & Connections</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'customize'}">
+            <a  ng-click="changeTab('customize')" href="">Customize Interloop</a>
+           </li>
+		</ul>
+	</div>
+	<div class="col-xs-9">
+		<div class="tab-content">
+	        <div class="tab-pane" ng-show="view_tab == 'profile'">
+	            tab 1
+	        </div>
+	        <div class="tab-pane" ng-show="view_tab == 'preferences'">
+	           tab 2
+	        </div>
+	         <div class="tab-pane" ng-show="view_tab == 'notifications'">
+	            This is tab 3 content
+	        </div>
+	         <div class="tab-pane" ng-show="view_tab == 'advanced'">
+	            This is tab 4 content
+	        </div>
+    	</div>
+	</div>
+</div>
+
+
+
+
+</div>
+
+<!-- <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+</div> -->

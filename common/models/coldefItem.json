@@ -1,0 +1,39 @@
+{
+  "name": "ColDefItem",
+  "plural": "ColDefItems",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "headerName": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string"
+    },
+    "cellRenderer": {
+      "type": "string"
+    },
+    "valueGetter": {
+      "type": "string"
+    },
+    "width": {
+      "type": "number"
+    },
+    "hide": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {},
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

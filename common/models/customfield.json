@@ -1,0 +1,49 @@
+{
+  "name": "CustomField",
+  "plural": "CustomFields",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "useWith": {
+      "type": [
+        "string"
+      ]
+    }, 
+    "showInRefine": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "_items": {
+      "type": "embedsMany",
+      "model": "CustomFieldItem",
+      "property": "items",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Interloop",
+  "description": "Complex Sales... Simplfied.",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-animate": "~1.4.8",
+    "ag-grid": "~2.3.5",
+    "angular-bootstrap": "~0.14.3",
+    "angular.panels": "~1.0.3",
+    "angular-sanitize": "~1.4.8",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.10.6",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
+    "angular-filter": "~0.5.8",
+    "ngQuill": "ngquill#~1.1.1",
+    "ng-tags-input": "~3.0.0",
+    "angular-gravatar": "~0.4.1",
+    "angular-swiper": "~0.3.2",
+    "angular-file-upload": "~2.2.0",
+    "angular-web-notification": "~0.0.53",
+    "Swiper": "swiper#~3.2.7",
+    "angular-md5": "~0.1.10",
+    "jshashes": "~1.0.5",
+    "ngstorage": "~0.3.10"
+  }
+}

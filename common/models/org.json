@@ -1,0 +1,40 @@
+{
+  "name": "Org",
+  "plural": "Orgs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created_date",
+      "updatedAt": "updated_date",
+      "required": false
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+     "entityConfig": {
+      "type": 
+        "object"
+    }
+  },
+ "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

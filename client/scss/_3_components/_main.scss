@@ -1,0 +1,309 @@
+//
+// Main
+// --------------------------------------------------
+
+.main {
+  -webkit-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 1em;
+  overflow-y: scroll;
+  position:relative;
+  z-index:$zIndex-main;
+  background-color:$limestone;
+
+.navBar {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:48px;
+	background-color:$diamond;
+	border-bottom:solid 1px $limestone;
+	box-shadow:1px 1px 1px rgba(0,0,0,.05);
+	-webkit-box-shadow:1px 1px 1px rgba(0,0,0,.05);
+	display:flex;
+	justify-content:space-between;
+	white-space: nowrap;
+	overflow:hidden;
+}
+
+.navButtons {
+	display: inline-block;
+	height: 100%;
+	// line-height:42px;
+}
+
+.newDrop {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+
+}
+
+
+
+.collapse-button	{
+	padding:12px;
+	font-size:16px;
+	display:inline-flex;
+	
+
+	&:hover {
+		color:$flint;
+		cursor:pointer;
+	}
+}
+
+.navigator-buttons {
+	// padding:12px;
+	font-size:16px;
+	display:inline-flex;
+	transform:translateY(1px);
+	margin-left:-5px;
+	// border-left:solid 1px $pumice;
+	// border-right:solid 1px $pumice;
+	// padding-left:5px;
+	// padding-right:5px;
+	// margin-right:10px;
+
+	.history-button {
+		margin:0px;
+		width:30px;
+		height:30px;
+		border-radius:50%;
+		line-height: 30px;
+		text-align: center;
+		opacity: .8;
+
+		i:before {
+			font-weight:900 !important;
+		}
+
+		&:hover {
+			cursor:pointer;
+			color:$flint;
+		}
+
+		&.active {
+			opacity: .75;
+			color:$topaz;
+
+			&:hover {
+				color:$topaz;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.notification-button {
+		font-size: 17px;
+	    display: inline-block;
+	    margin: 8px 4px;
+	    width: 30px;
+	    height: 30px;
+	    line-height: 28px;
+	    border-radius: 50%;
+	    text-align: center;
+	    padding: 0px;
+	    border: solid 1px #DDE3E9;
+	    position: relative;
+
+		&:hover {
+	
+			color:$flint;
+			border-color:$gravel;
+			cursor:pointer;
+		}
+}
+
+.bubble {
+	position: absolute;
+	top:-3px;
+	right:-3px;
+	width:14px;
+	height:14px;
+	border:solid 2px $diamond;
+	border-radius:50%;
+	background-color: lighten($ruby, 5%);
+}
+
+.user-button {
+	display:inline-block;
+	padding: 5px;
+	font-size:13px;
+	text-transform: uppercase;
+	font-weight:600;
+
+	a {
+		color:$gravel;
+
+		&:hover {
+			color:darken($gravel, 5%);
+		}
+	}
+
+	.avatar {
+		transform:translateY(-2px);
+		line-height: 30px;
+		width:28px;
+		height:28px;
+
+		.presence {
+			right:-5px;
+		}
+	}
+}
+
+.newEntity-button {
+	display: inline-block;
+	margin-right:5px;
+
+	a {
+	text-transform: uppercase;
+	color: $gravel;
+	font-weight: 600;
+	font-size:13px;
+	padding: 5px 15px;
+	padding-left:24px;	
+	border:solid 1px $pumice;
+	border-radius: 24px;
+
+	&:hover {
+		color:$topaz;
+		border-color:$topaz;
+		opacity: 1;
+	}
+
+}
+}
+
+.newEntity-button.active {
+	a {
+		color:$topaz;
+		border-color:$topaz;
+		opacity: 1;
+	}
+}
+
+
+//search
+
+.search {
+	display: inline-block;
+	padding:0 5px;
+	position: relative;
+}
+
+.searchIcon {
+	position: absolute;
+	left:12px;
+	line-height:32px;
+	color:$gravel;
+}
+
+.clearSearchIcon {
+	display: inline-block;
+	position: absolute;
+	right:10px;
+	line-height:34px;
+	font-size:12px;
+	color:$gravel;
+	cursor:pointer;
+	margin-left:5px;
+	margin-right:5px;
+	z-index: 99999;
+
+	&:hover {
+		color:$flint;
+	}
+}
+
+.search input {
+	@include transition(all 0.15s ease-in-out);
+	height: 32px;
+	line-height: 30px;
+	font-size:14px;
+	border-radius: 24px;
+	padding:0 10px;
+	padding-left:28px;
+	box-shadow: none !important;
+	background-color:$diamond;
+	border:solid 1px $pumice;
+	outline:none !important;
+	width:250px;
+	color:$slate;
+
+	&:hover {
+		border-color:$gravel;
+	}
+
+}
+
+.search.isFocused input {
+	width:360px;
+	border-color:$gravel;
+}
+
+.right {
+	padding-right:10px;
+	white-space: nowrap;
+}
+
+.createItem {
+	display: inline-block;
+}
+
+.createItem .btn i {
+ 	font-size:12px;
+ 	margin-right:-5px;
+}
+
+}
+
+.newEntity {
+	padding:15px 0;
+	text-align: center;
+
+   	width:96px;
+   	// height:100px;
+   	// border:solid 2px $pumice;
+   	border-radius:4px;
+   	margin:3px; 
+   	margin-bottom:-6px;
+   	font-size:11px;
+   	text-transform: uppercase;
+   	font-weight:600;
+   	display:inline-block;
+
+   	a {
+   		color:$flint;
+   	}
+
+   	&:hover {
+   		icon {
+   			color:$topaz;
+   		}
+
+   		background-color:$limestone;
+   	}
+
+   	icon {
+   		font-size:24px;
+   		color:$gravel;
+   		margin-bottom:10px;
+   		display: block;
+   	}
+
+   }
+
+.user-settings-dropdown {
+  right: 8px !important;
+  top: 50px !important;
+  padding-bottom:10px;
+}

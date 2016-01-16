@@ -1,0 +1,43 @@
+//
+// Z-indexes
+// --------------------------------------------------
+
+/* Z index should all be defined in this file so we 
+can easily see the layering of the application
+*/
+
+
+// Z-Index Scale (private vars)
+// --------------------------------------------------
+$zIndex-1:   100;
+$zIndex-2:   200;
+$zIndex-3:   300;
+$zIndex-4:   400;
+$zIndex-5:   500;
+$zIndex-6:   600;
+$zIndex-7:   700;
+$zIndex-8:   800;
+$zIndex-9:   900;
+$zIndex-10: 1000;
+
+
+// Z-Index Applications
+// --------------------------------------------------
+// Ex.
+// $zIndex-1--navBar:          $zIndex-1;
+// $zIndex-9--tooltip:         $zIndex-9;
+// $zIndex-10--dev:                    $zIndex-10;
+
+$zIndex-sidebarBody:			$zIndex-1;
+$zIndex-sidebarHeader:			$zIndex-2;
+
+$zIndex-main:					$zIndex-3;
+
+$zIndex-tooltips:				$zIndex-6;
+
+$zIndex-confetti:				1041;
+
+$zIndex-modal:				    $zIndex-8;
+$zIndex-modalClose:				$zIndex-9;
+
+

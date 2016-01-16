@@ -1,0 +1,154 @@
+<!-- 
+ _     _           _             
+|_|___| |_ ___ ___| |___ ___ ___ 
+| |   |  _| -_|  _| | . | . | . |
+|_|_|_|_| |___|_| |_|___|___|  _|
+                            |_| 
+ -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="interloop">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+     <!-- Dynamic title -->
+    <title ng-bind="pageTitle">Interloop</title>
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <!-- /fonts -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/please-wait/build/please-wait.css">
+    <link rel="stylesheet" href="lib/ag-grid/dist/ag-grid.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
+ <!--    <link href="lib/angular-panels/dist/angular.panels.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.min.css"> 
+<!--     <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.bootstrap.min.css"> -->
+    <link rel="stylesheet" href="lib/angular-hotkeys/build/hotkeys.css">
+    <link rel="stylesheet" href="lib/v-accordion/dist/v-accordion.css"  />
+    <link rel="stylesheet" href="lib/swiper/dist/css/swiper.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/budicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/interloop-desktop.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-ui-select/select.min.css">
+  
+
+    <!-- js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script type="text/javascript" src="lib/moment/moment.js"></script>
+    <script type="text/javascript" src="lib/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+    <script type="text/javascript" src="lib/swiper/dist/js/swiper.js"></script>
+    <script type="text/javascript" src="lib/HTML5-Desktop-Notifications2/desktop-notify.js"></script> 
+    <script type="text/javascript" src="lib/jsonfn/jsonfn.js"></script>
+    <script type="text/javascript" src="lib/jsHashes/hashes.js"></script>
+    <script type="text/javascript" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+   
+    <!-- //confetti script -->
+    <script src="assets/js/confetti.js"></script>
+    <!-- /js -->
+
+
+    <!-- angular -->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+     <!-- /angular -->
+
+    <!-- angular components -->
+    <script type="text/javascript" src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="lib/angular-popover-toggle/popover-toggle.js"></script>
+    <script type="text/javascript" src="lib/ag-grid/dist/ag-grid.js"></script>
+   
+    <script type="text/javascript" src="lib/zingchart-angularjs/src/zingchart-angularjs.js"></script>
+    <script type="text/javascript" src="lib/angular-gravatar/build/angular-gravatar.js"></script>
+    <script type="text/javascript" src="lib/angular-panels/dist/angular.panels.min.js" ></script>
+    <script type="text/javascript" src="lib/angular-swiper/dist/angular-swiper.js"></script>
+    <script type="text/javascript" src="lib/angular-moment/angular-moment.js"></script>
+    <script type="text/javascript" src="lib/angular-filter/dist/angular-filter.js"></script>
+    <script type="text/javascript" src="lib/angular-file-upload/dist/angular-file-upload.js"></script>
+    <script type="text/javascript" src="lib/checklist-model/checklist-model.js"></script>
+    <script type="text/javascript" src="lib/angular-hotkeys/build/hotkeys.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script type="text/javascript" src="lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+    <script type="text/javascript" src="lib/v-accordion/dist/v-accordion.js"></script>
+    <script type="text/javascript" src="lib/ng-tags-input/ng-tags-input.js"></script>
+    <script type="text/javascript" src="lib/ngstorage/ngstorage.js"></script>
+    <script type="text/javascript" src="lib/angular-web-notification/angular-web-notification.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-select/select.min.js"></script>
+    
+    <!-- /angular components -->
+
+    <!-- Strongloop - Generated Services -->
+    <script type="text/javascript" src="lib/strongloop/lb-services.js"></script>
+    <!-- /Strongloop -->
+
+    <!-- Interloop Helper Library --> 
+    <script type="text/javascript" src="lib/interloop/interloop-services.js"></script>
+
+    <!-- Core App JS-->
+    <!-- //includes libs and modules of app -->
+    <script type="text/javascript" src="app.js"></script>
+    <!-- //includes any config / run js -->
+    <script type="text/javascript" src="app.config.js"></script>
+    <script type="text/javascript" src="/config/http-interceptor.js"></script>
+    <script type="text/javascript" src="/config/bootstrap.js"></script>
+    <script type="text/javascript" src="/config/panels.js"></script>
+    <script type="text/javascript" src="/config/shortcuts.js"></script>
+
+    <!-- //includes ui router routes -->
+    <script type="text/javascript" src="app.routes.js"></script>
+    <!-- /Core App JS-->
+
+    <!-- socket io intergration with loopback SERVED LOCALLY WITH LOOPBACK--> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.0/socket.io.js"></script>
+<!--     // <script src="/socket.io/socket.io.js"></script> -->
+    <script type="text/javascript" src="assets/js/loopbackSocketIntegration.js"></script>
+    <!-- /socket io -->
+
+    <!-- Interloop Modules -->
+    <script type="text/javascript" src="modules/_shared/services/factories.js"></script>
+    <script type="text/javascript" src="modules/_shared/services/directives.js"></script>
+    <script type="text/javascript" src="modules/_shared/services/filters.js"></script>
+    <script type="text/javascript" src="modules/_shared/services/history.js"></script>
+    <script type="text/javascript" src="modules/_shared/splash/splash.js"></script>
+    <script type="text/javascript" src="modules/_shared/splash/splashCtrls.js"></script>
+
+    <script type="text/javascript" src="modules/login/loginCtrls.js"></script>
+    <script type="text/javascript" src="modules/_shared/layout/layoutCtrls.js"></script>
+    <script type="text/javascript" src="modules/_shared/panels/panelCtrls.js"></script>
+    <script type="text/javascript" src="modules/opportunities/opportunityCtrls.js"></script>
+    <script type="text/javascript" src="modules/contacts/contactsCtrls.js"></script>
+    <script type="text/javascript" src="modules/companies/companiesCtrls.js"></script>
+    <script type="text/javascript" src="modules/analytics/analyticsCtrls.js"></script>
+    <script type="text/javascript" src="modules/tasks/tasksCtrls.js"></script>
+    <script type="text/javascript" src="modules/profile/profileCtrls.js"></script>
+    <script type="text/javascript" src="modules/search/searchCtrls.js"></script>
+
+    <!-- Intercom  -->
+   <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/vp6k9wou';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+   </script>
+    <!-- End Intercom -->
+
+</head>
+
+<body>
+<!-- //confetti background -->
+<canvas id="confetti" width="1" height="1"></canvas>
+<!-- main view -->
+<div ui-view></div>
+
+<!-- loading screen -->
+<script src="lib/please-wait/build/please-wait.min.js"></script>
+<script src="assets/js/load.js"></script>
+
+
+
+
+</body>
+</html>

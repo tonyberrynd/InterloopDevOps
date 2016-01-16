@@ -1,0 +1,33 @@
+.tooltip {
+    z-index:$zIndex-tooltips;
+       font-size:10px !important;
+}
+
+.tooltip-inner { 
+    color: $diamond;
+ 
+    font-weight:600;
+    padding:8px 12px;
+    font-size:13px;
+    font-weight:400;
+    font-family:$font-main;
+    background-color: darken($sapphire, 7.5%);
+    box-shadow: none;
+    border-radius:2px; 
+    min-width: 100px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    }
+.tooltip.top .tooltip-arrow { 
+    border-top-color: darken($sapphire, 7.5%);
+}
+.tooltip.right .tooltip-arrow { 
+    border-right-color: darken($sapphire, 7.5%); 
+}
+.tooltip.bottom .tooltip-arrow { 
+    border-bottom-color: darken($sapphire, 7.5%); 
+}
+.tooltip.left .tooltip-arrow { 
+    border-left-color: darken($sapphire, 7.5%); 
+}

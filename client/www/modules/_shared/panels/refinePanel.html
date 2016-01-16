@@ -1,0 +1,137 @@
+<div class="side-panel">
+
+  <div class="panel-head">
+    <div class="panel-close">
+      <button type="button" class="btn btn-clear closeIt" data-ng-click="panels.close()"><icon class="bi_interface-cross"></icon></button>
+    </div>
+    <div class="sidepanel-title">
+      Apply Filters 
+
+
+<!--       <button class="btn btn-clear" ng-click="resetFilters()" tooltip-placement="bottom" uib-tooltip="Reset to original settings"><icon class="fa fa-undo"></icon>
+      </button> -->
+    </div>
+    <div class="panel-save">
+<!--       <button type="button" class="close" data-ng-click="applyFilters(shownColumns.fields)" tooltip-placement="bottom" uib-tooltip="Apply Filters">Apply</button> -->
+    </div>
+  </div>
+
+
+  <!-- //panel sub header -->
+<div class="panel-sub">
+  <div class="leftSide">
+    <i style="cursor:pointer;" uib-tooltip="Reset Filters" class="bi_interface-reverse" ng-click="resetFilters()" ></i>
+  </div>
+  
+  <div class="rightSide">
+    <i style="cursor:pointer;" uib-tooltip="Expand All" class="bi_doc-download" ng-click="accordion.expandAll()"></i>
+    <i style="cursor:pointer;" uib-tooltip="Collapse All" class="bi_doc-upload" ng-click="accordion.collapseAll()"></i>
+</div>
+    
+</div>
+
+<div class="panel-body md-padding">
+
+
+  
+<v-accordion class="vAccordion--default" multiple control="accordion">
+
+  <!-- Standard Fields --> 
+ 
+  <v-pane ng-repeat="(fieldName, fieldDef) in currentState.org.entityConfig[currentState.entityType].refineFields track by fieldName">
+    <v-pane-header>
+      {{fieldDef.label}}
+    </v-pane-header>
+    <v-pane-content>
+      <!-- add no values and all values --> 
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.standardFields[fieldName]"  data-checklist-value="data.anyValue" >
+          (Any Value)
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="setNoValue(fieldName, 'standardFields')" data-checklist-model="currentEntity.refineParams.standardFields[fieldName]"  data-checklist-value="data.noValue" ng-model="data.checked[fieldName].noValue">
+          (No Value)
+        </label>
+      </div>
+
+      <!-- now show all standard fields --> 
+      <div class="checkbox" ng-repeat="item in currentEntity.pickLists[fieldDef.pickList].items | orderBy : 'order'">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.standardFields[fieldName]" data-checklist-value="item.value"> {{item.value}}
+        </label>
+        </div>
+    </v-pane-content>
+  </v-pane>
+
+
+
+  <!-- Custom Fields --> 
+  <v-pane ng-repeat="(fieldName, fieldDef) in showInRefine(currentEntity.customFields) track by fieldName">
+    <v-pane-header>
+      {{fieldDef.name}}
+    </v-pane-header>
+    <v-pane-content>
+       <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.customFields[fieldName]"  data-checklist-value="data.anyValue" >
+          (Any Value)
+        </label>
+      </div>
+
+       <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="setNoValue(fieldName, 'customFields')" data-checklist-model="currentEntity.refineParams.customFields[fieldName]"  data-checklist-value="data.noValue" >
+          (No Value)
+        </label>
+      </div>
+
+      <div class="checkbox" ng-repeat="item in fieldDef.items | orderBy : 'order'">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.customFields[fieldDef.name]" data-checklist-value="item.value"> {{item.value}}
+        </label>
+        </div>
+    </v-pane-content>
+  </v-pane>
+
+   <!-- Qualifier Fields --> 
+  <v-pane ng-repeat="(fieldName, fieldDef) in currentEntity.qualifiers track by fieldName">
+    <v-pane-header>
+      {{fieldDef.name}}
+    </v-pane-header>
+    <v-pane-content>
+       <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.qualifierFields[fieldName]"  data-checklist-value="data.anyValue" >
+          (Any Value)
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" checklist-change="setNoValue(fieldName, 'qualifierFields')" data-checklist-model="currentEntity.refineParams.qualifierFields[fieldName]"  data-checklist-value="data.noValue" ng-model="data.checked[fieldName].noValue">
+          (No Value)
+        </label>
+      </div>
+
+      <div class="checkbox" ng-repeat="item in fieldDef.items | orderBy : 'order'">
+        <label>
+          <input type="checkbox" checklist-change="dataChanged()" data-checklist-model="currentEntity.refineParams.qualifiers[fieldDef.name]" data-checklist-value="item.value"> {{item.name}}
+        </label>
+        </div>
+    </v-pane-content>
+  </v-pane>
+
+
+
+</v-accordion>
+
+
+
+</div>
+
+</div>
+

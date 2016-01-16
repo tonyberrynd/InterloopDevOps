@@ -1,0 +1,85 @@
+.content {
+	background-color:$diamond;
+	// border:solid 1px $pumice;
+	border-radius:4px;
+	margin:0px;
+	max-width:840px; 
+	margin:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+	box-shadow: 0 1px 2px rgba(43,59,93,.29);
+	-webkit-box-shadow: 0 1px 2px rgba(43,59,93,.29);
+	   //  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    // -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    // -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+.content-block {
+	padding:15px;
+	position: relative;
+}
+
+.shade-block {
+	background-color:lighten($pumice, 7%);
+}
+
+.sub-block {
+	padding-bottom:40px;
+}
+
+.title {
+	color:$charcoal;
+}
+
+.subtitle {
+	color:$gravel;
+	text-transform: uppercase;
+	font-weight:600;
+	font-size:12px;
+}
+
+.indicator {
+	margin-top:10px;
+	display: block;
+	background-color: lighten($pumice, 10%);
+	border-radius: 50%;
+	height:60px;
+	width:60px;
+	margin:auto;
+	font-size:30px;
+	line-height: 50px;
+	text-align: center;
+	border:solid 4px $pumice;
+
+	&.isWon {
+		border-color:$emerald;
+		color:$emerald;
+	}
+}
+
+.top-left {
+	position: absolute;
+	left:15px;
+	top:0px;
+}
+
+.top-right {
+	position: absolute;
+	right:10px;
+	top:0px;
+}
+
+.value {
+	color:$charcoal;
+	font-size:24px;
+	font-weight:600;
+}
+
+.closeDate {
+	color:$charcoal;
+	font-weight:600;
+	font-size:16px;
+}
+
+}
+
+

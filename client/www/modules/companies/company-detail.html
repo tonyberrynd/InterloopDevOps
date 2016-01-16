@@ -1,0 +1,222 @@
+
+<div class="view company-detail">
+	<div class="company-detail-card">
+		
+	<div class="detail-card-header">
+
+<div class="manager">
+	<div class="avatar" ng-class="currentEntity.currentItem.accountManager.avatar_color">
+		{{getInitials(currentEntity.currentItem.accountManager.value)}}
+	</div>
+	<!-- <p class="manager-name">{{currentEntity.currentItem.accountManager.value}}</p> -->
+		<p class="manager-name"> 
+			<select style="margin-top:-5px; border:none; box-shadow:none;"
+				class="form-control" 
+				ng-options="item as item.value for item in currentEntity.pickLists.accountManager.items track by item.itemId" 
+				ng-model="currentEntity.currentItem.accountManager">
+			</select>
+			</p>
+	</div>
+
+				
+	<div style="z-index:50;" class="btn-group more" uib-dropdown is-open="status.isopen">
+		      <button id="single-button" type="button" class="more btn btn-clear" uib-dropdown-toggle ng-disabled="disabled" >
+		        ...
+		      </button>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+		        <li role="menuitem"><a href="#"><span class="fa fa-user"></span> Assign Manager</a></li>
+		        <li role="menuitem"><a href="#"><span class="icon_printer-alt"></span> Print Company Detail</a></li>
+		        <li class="divider"></li>
+		        <li role="menuitem" ng-click="deleteTask()"><a href=""><span class="icon_trash"></span> Delete Company</a></li>
+		      </ul>
+		    </div>
+
+
+<div class="score">
+	<div class="score-box">
+		{{currentEntity.currentItem.score | number: 1}}
+	</div>
+	<p class="qualifiers-small" ng-bind-html="data.htmlQualifiers">Test</p>
+</div>
+
+
+<div class="social">
+
+				<select class="status form-control">
+				  <option>Potential</option>
+				  <option>Association</option>
+				  <option>Partner</option>
+				  <option>Bad Fit</option>
+				  <option>Customers</option>
+				</select>
+
+			<div class="social-icons">
+				<icon class="linkedin fa fa-linkedin-square"></icon>
+				<icon class="twitter fa fa-twitter-square"></icon>
+				<icon class="facebook fa fa-facebook-square"></icon>
+				<icon class="google fa fa-google-plus-square"></icon>
+				<icon class="new fa fa-plus-square"></icon>
+			</div>
+</div>
+
+	
+	<div class="company-card">
+			<span class="card-icon icon_building"></span>
+			 <h3>
+			 	<input style="text-align:center;border:0px" type="text" id="name" ng-model="currentEntity.currentItem.name" ng-blur=""/>
+			 </h3>
+			<input style="text-align:center;border:0px" type="text" id="phone" placeholder="Phone" ng-model="currentEntity.currentItem.phone" ng-blur="">
+			<small><br>
+				<input style="text-align:center;border:0px" type="text" id="description" placeholder="Company Description" ng-model="currentEntity.currentItem.description" ng-blur="">
+			</small><br>
+			<small>
+				<input style="text-align:center;border:0px" type="text" id="web site" placeholder="Website" ng-model="currentEntity.currentItem.website" ng-blur="">
+			</small>
+
+			
+	</div>
+		
+
+	</div>
+	<div class="deatil-card-body">
+		<div class="row">
+			<div class="col-xs-4 border-r padding-sm">
+
+			<!-- //contacts -->
+				<div class="section">
+					<p class="title">Contacts ({{currentEntity.currentItem.contacts.length}})</p>
+
+				   <ks-swiper-container swiper="swiper" slides-per-view="6">
+					    <ks-swiper-slide class="swiper-slide" ng-repeat="contact in currentEntity.currentItem.contacts">
+					      <span class="contact-circle"  uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter">
+								{{getInitials(contact.fullName)}}	
+							</span>
+
+					    </ks-swiper-slide>
+					</ks-swiper-container>
+
+					<script type="text/ng-template" id="myPopoverTemplate.html">
+				        <div>{{dynamicPopover.content}}</div>
+				        <div class="form-group">
+				          <label>Popup Title:</label>
+				          
+				        </div>
+				    </script>
+
+						<div class="contact-navigator">
+							
+							<button style="padding:0px" class="btn btn-clear">
+								<icon class="nav arrow_carrot-left" ng-click="prevSlide()"></icon>
+							</button>
+							<button  style="padding:0px" class="btn btn-clear" ng-click="nextSlide()">
+								<icon class="nav arrow_carrot-right" ></icon>
+							</button>
+						</div>
+				</div>
+
+				<!-- Tasks -->
+			<div class="section">
+				<p class="title">Tasks ({{data.tasks.length}})</p>
+				 <div class="checkbox" ng-repeat="activity in currentEntity.currentItem.activities | filter: {'isComplete' : false}">
+				    <label>
+				      <input type="checkbox"> {{activity.subject}}
+				    </label>
+				  </div>
+
+			</div>
+
+			<div class="section">
+				<p class="title">Opportunities ({{currentEntity.currentItem.opportunities.length}})</p>
+
+				<div class="pipeline-card" ng-repeat="opp in currentEntity.currentItem.opportunities">
+
+							<div class="item-body" >
+								<div class="avatar">{{getInitials(opp.accountManager.value)}}</div>
+								<p style="padding-left:30px; margin:3px 0; font-size:1em;">
+									<a href="#"></a>{{opp.description}}</p>
+								<p style="margin:3px 0; font-size:.9em;">{{opp.name}}</p>
+								<p style="margin: 3px 0;">{{opp.value | currency:"$":0}}<span style="padding-right:5px;" class="pull-right">
+								<icon class="fa fa-clock-o"></icon> <i>{{opp.estimatedClose | amDateFormat:'MMMM Do YYYY'}}</i></span></p>
+							</div>
+							<div class="item-footer">
+								<div class="progress">
+								  <div class="progress-bar" role="progressbar" aria-valuenow="{{opp.percentClose}}"
+												aria-valuemin="0" aria-valuemax="100" ng-style="{ 'width': opp.percentClose + '%' }">
+									</div>
+								</div>
+							</div>		
+				</div>
+			</div>
+<!--
+	<div class="no-pad col-xs-6 qual-select">
+--> 		
+			<!-- Qualifiers -->
+			<div class="section">
+				<p class="title">Qualifiers</p>
+				<div class="row" ng-repeat="qualifier in currentEntity.qualifiers">
+					<div class="no-pad col-xs-12 qual-select">	
+						<label for="">{{qualifier.name}}</label>
+						<select class="form-control" ng-options="item as item.name for item in qualifier.items track by item.id" 
+							ng-model="currentEntity.currentItem.qualifiers[qualifier.name]">
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+			<div class="col-xs-8">
+			<div class="row">
+<!-- 				<div class="col-xs-2 text-center">
+					History
+				</div>
+				<div class="col-xs-2 text-center">
+					Details
+				</div>
+				<div class="col-xs-2 text-center">
+					Documents
+				</div> -->
+
+
+				  <uib-tabset class="detail-tabs" justified="true">
+				    <uib-tab heading="History">
+				    	<div class="detail-tabs-content">
+				    		
+				    		<!-- history feed -->
+							<ng-include src="'modules/companies/company-timeline.html'"></ng-include>
+							<!-- /history feed -->
+				    	</div>
+
+
+				    </uib-tab>
+				    <uib-tab heading="Details">
+				    	<div class="detail-tabs-content">
+				    		<!-- history feed -->
+							<ng-include src="'modules/companies/details.html'"></ng-include>
+							<!-- /history feed -->
+				    	</div>
+				    </uib-tab>
+				    <uib-tab heading="Documents">
+				    	<div class="detail-tabs-content">
+				    		<!-- documents feed -->
+							<ng-include src="'modules/companies/documents.html'"></ng-include>
+							<!-- /documents feed -->
+				    	</div>
+				    </uib-tab>
+
+				    <uib-tab heading="Metrics">
+				    	<div class="detail-tabs-content">
+				    		
+				    	</div>
+				    </uib-tab>
+				  </uib-tabset>
+			</div>
+				
+
+			</div>		
+		</div>
+	</div>
+
+
+	</div>
+</div>

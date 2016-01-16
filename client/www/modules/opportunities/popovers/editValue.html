@@ -1,0 +1,11 @@
+<!-- //popover tempaltes -->
+<icon class="bi_interface-cross" ng-click="editValueOpen = false"></icon>
+ <a href ng-click="$parent.isOpen = false">close me</a>
+<form role="form">
+  <div class="form-group">
+    <label for="value">Opportunity Value:</label>
+    <input ng-model="currentEntity.currentItem.value" type="text" class="form-control" id="value">
+  </div>
+</form>
+<hr>
+<button class="btn btn-primary pull-right" ng-click="closePopup()">Save</button>

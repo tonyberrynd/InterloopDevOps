@@ -1,0 +1,23 @@
+
+
+
+<div class="innerbar">
+   Show <button ng-disabled="data.showType === '#'" ng-click="showType('#')">#</button><button ng-disabled="data.showType === '$'" ng-click="showType('$')">$</button> 
+        Total # of Opps - {{data.oppStats.count}}  Total $ of Opps - {{data.oppStats.total | currency : '$'}}
+</div>
+
+  <div class="row" style="margin:0px;">
+      <div class="col-xs-5" zingchart id="Team" zc-render="teamRenderer" zc-json="teamChartConfig" zc-height="250">
+        <!-- Zing Chart Team Performance here -->
+      </div>
+
+      <div class="col-xs-7" zingchart id="Pipeline" zc-render="pipelineRenderer" zc-json="pipelineChartConfig" zc-height="250">
+        <!-- Zing Chart Pipeline here -->
+      </div>
+ </div> 
+ <br>
+ <div class="row" style="margin:0px;">
+    <div class="col-xs-12" zingchart id="Montly" zc-render="monthlyRenderer" zc-width="91%" zc-json="monthlyChartConfig" zc-height="350">
+        <!-- Zing Chart Monthly shown here -->
+    </div>
+ </div>

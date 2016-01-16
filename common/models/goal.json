@@ -1,0 +1,40 @@
+{
+  "name": "Goal",
+  "plural": "Goals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created_date",
+      "updatedAt": "updated_date",
+      "required": false
+    }
+  },
+  "properties": {
+    "goals": {
+      "type": "object",
+      "required": true
+    }
+  },
+ "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "validations": [],
+  "relations": {
+      "_accountManager": {
+        "type": "embedsOne",
+        "model": "PicklistItem",
+        "property": "accountManager", 
+        "forceId": true
+      }
+    },
+  "acls": [],
+  "methods": []
+}

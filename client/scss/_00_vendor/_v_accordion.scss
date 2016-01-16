@@ -1,0 +1,42 @@
+.vAccordion--default v-pane-header {
+    padding: 0px;
+    padding: 3px 0px;
+    margin-bottom: 10px;
+    -webkit-transition: color 0.25s, border-color 0.5s;
+    transition: color 0.25s, border-color 0.5s;
+    font-size: 14px;
+    border-bottom: solid 1px #f3f5f7;
+}
+
+.vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 10px;
+    height: 1px;
+    background-color: $topaz;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.vAccordion--default v-pane.is-expanded > v-pane-header {
+    border-bottom-color: $topaz;
+}
+
+.vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus {
+    color: $topaz;
+}
+
+.vAccordion--default v-pane.is-expanded > v-pane-header {
+    border-bottom-color: $topaz;
+    color: $topaz;
+}
+
+.vAccordion--default v-pane-header:focus {
+    color: $granite;
+}

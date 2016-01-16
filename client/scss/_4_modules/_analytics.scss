@@ -1,0 +1,56 @@
+.view.has-sub-header {
+	padding-top:50px;
+}
+	.sub-header {
+		display: block;
+		position: fixed;
+		left:0px;
+		right:0px;
+		height: 50px;
+		background-color: $diamond;
+		border-bottom:solid 2px $pumice;
+		top: 54px;
+	    left: 220px;
+	    z-index:50;
+	}
+
+	.sub-button {
+		height:50px;
+		padding:12px 30px;
+		display: inline-block;
+		max-width: 240px;
+		text-align: center;
+		line-height: 25px;
+		cursor: pointer;
+		opacity: .8;
+		color:$slate;
+  -webkit-transition: border .1s ease; /* Saf3.2+, Chrome */
+     -moz-transition: border .1s ease; /* FF3.7+ */
+       -o-transition: border .1s ease; /* Opera 10.5 */
+          transition: border .1s ease;
+	}
+
+	.sub-button:hover {
+
+	border-width: 0 0 2px 0;
+    border-style:solid;
+    -moz-border-image: -moz-linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    -webkit-border-image: -webkit-linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    border-image: linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    border-image-slice: 1;
+   
+
+
+	}
+
+	.sub-button.active {
+		opacity:1;
+		 border-width: 0 0 2px 0;
+    border-style:solid;
+   -moz-border-image: -moz-linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    -webkit-border-image: -webkit-linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    border-image: linear-gradient(-225deg, #199EDA 0%, #67E1F5 100%);
+    border-image-slice: 1;
+
+	}
+

@@ -1,0 +1,130 @@
+.wonDeal {
+	color:$emerald;
+}
+
+.lostDeal {
+	color:$ruby;
+}
+
+.pausedDeal {
+	color:$amber;
+}
+
+.opp-detail {
+	padding:30px 0;
+	margin-bottom:10px;
+}
+
+.statusSelect {
+	padding:0 5px;
+	border:solid 2px $pumice;
+	border-radius: 20px;
+	width:160px;
+	margin:auto;
+	margin-top:15px;
+	position: relative;
+}
+
+.statusSelect p {
+	margin:3px 0;
+}
+
+.statusPicker {
+	position: absolute;
+    right: 10px;
+    top: 7px;
+    font-size:10px;
+}
+
+// .accountManager {
+// 	position: absolute;
+// 	top:5px;
+// 	left:40px;
+// 	white-space: nowrap;
+// }
+
+.followers {
+	padding:0px;
+	opacity: .75;
+
+	.avatar {
+		margin-right:2px;
+	}
+
+	.presence {
+		right:-5px !important;
+	}
+}
+
+.editable {
+	&:hover {
+		background-color:#feffeb;
+		cursor:pointer;
+	}
+}
+
+
+.opp-stage-slide {
+	max-width:360px;
+}
+
+
+//stages 
+
+.stage-slider	 {
+	.leftSlide {
+			position: absolute;
+			left:0px;
+			top:50%;
+			font-size:16px;
+			cursor:pointer;
+			z-index:$zIndex-9;
+
+			&:hover {
+				color:$topaz;
+				background-color:$pumice;
+				border-radius: 50%;
+			}
+		}
+
+		.rightSlide {
+			position: absolute;
+			right:0px;
+			top:50%;
+			font-size:16px;
+			cursor: pointer;
+			z-index:$zIndex-9;
+
+			&:hover {
+				color:$topaz;
+				background-color:$pumice;
+				border-radius: 50%;
+			}
+		}
+
+}
+
+
+
+.opportunity-stage {
+	display: block;
+	min-height: 140px;
+	padding:10px 15px;
+	border-right:1px solid $pumice;
+	position: relative;
+
+	
+
+	.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0px 15px;
+    margin-bottom: -1px;
+    background-color: #f3f5f7;
+    border: none;
+    // border-bottom:solid 1px $pumice;
+    border-radius: 0px;
+}
+
+
+}

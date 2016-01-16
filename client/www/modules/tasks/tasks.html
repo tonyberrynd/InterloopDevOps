@@ -1,0 +1,36 @@
+<div class="inner tasks">
+
+	<div class="tasks-panel">
+		
+		<!-- tasks header -->
+		<div class="row tasks-header">
+				<div class="col-xs-2 task-group text-center" ui-sref-active="active" uib-tooltip-placement="bottom" uib-tooltip="Task Inbox" ui-sref="base.tasks.now" >
+					<icon class="icon bi_doc-drawer-blank"></icon>
+					  Inbox
+				</div>
+				<div class="col-xs-2 task-group text-center" ui-sref-active="active" uib-tooltip-placement="bottom" uib-tooltip="Tasks planned for after today" ui-sref="base.tasks.later">
+				<icon class="icon bi_interface-clock"></icon>
+					 Later
+				</div>
+				<div class="col-xs-2 task-group text-center" ui-sref-active="active" uib-tooltip-placement="bottom" uib-tooltip="Tasks without planned dates"  ui-sref="base.tasks.someday">
+				<icon class="icon bi_doc-box"></icon>
+					 Someday
+				</div>
+				<div class="col-xs-2 task-group text-center" ui-sref-active="active" uib-tooltip-placement="bottom" uib-tooltip="Completed Tasks" ui-sref="base.tasks.completed">
+				<icon class="icon bi_com-check-box"></icon>
+					 Completed
+				</div>
+		<!-- 		<div class="col-xs-2">
+					 Other
+				</div> -->
+		</div>
+
+		<!-- tasks-enter -->
+			<!-- ui-view to various tasks -->
+			<div class="task-list" ui-view></div>
+
+
+	</div>
+
+
+</div>

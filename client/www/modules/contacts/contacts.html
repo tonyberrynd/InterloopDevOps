@@ -1,0 +1,127 @@
+
+
+<!-- <div class="subheader">
+	
+</div> -->
+
+<div class="inner noScroll">
+
+<div class="list-view" ng-show="data.viewType === 'list'">
+	
+	<div class="innerBar">
+		<div class="innerLeft">
+
+		
+
+
+			<div ng-if="!currentEntity.selectedItems.length" class="counts" style="display:inline-block;">
+			    <p class="entityTitle">{{currentView.name}}</p>
+				<p class="light"><b><span count-to="{{currentEntity.totalCount}}" value="0" duration=".25"></span>  Contacts </b></p>
+
+
+
+				<!-- <p class="light" ng-if="!currentEntity.numOfFilters.total > 0">No filters applied, No Columns Changed</p>
+				<p class="light" ng-if="currentEntity.numOfFilters.total > 0"><span uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter" popover-placement="top">{{currentEntity.numOfFilters.total}} filters applied</span> -->
+			<!-- 	<span class="clear-all" ng-click="viewAction('ClearFilters')">Clear All</span></p> -->
+			</div>
+
+			<div ng-if="currentEntity.selectedItems.length">
+				<button
+					class="btn btn-emerald"
+					style="display:inline-block; float:left; margin-right:10px; border-radius:2px; "
+					>
+			    Bulk Actions <icon class="bi_interface-bottom"></icon>
+				</button>
+				<p style="line-height:40px; font-weight:400;">{{currentEntity.selectedItems.length}} Rows Selected 
+				<a href ng-click="clearSelected()">Clear Selection</a>
+				</p>
+			</div>
+
+
+
+
+
+<!-- 			<div class="view-types" style="display: inline-block;">
+				<button class="btn btn-clear" ng-click="switchView('list')" ng-class="{'selected': data.viewType === 'list'}" tooltip-placement="top" uib-tooltip="List View" >
+					<icon class="fa fa-align-justify"></icon>
+				</button>
+
+				<button class="btn btn-clear" ng-click="switchView('cards')" ng-class="{'selected': data.viewType === 'cards'}" tooltip-placement="top" uib-tooltip="Card View">
+					<icon class="rotate-90 fa fa-align-left"></icon>
+				</button>
+
+				<button class="btn btn-clear" ng-click="switchView('timeline')" ng-class="{'selected': data.viewType === 'timeline'}" tooltip-placement="top" uib-tooltip="Timeline View">
+					<icon class="rotate-90 fa fa-clock-o"></icon>
+				</button>
+			</div> -->
+
+		</div>
+
+		<div class="innerRight">
+
+			<!-- //save view -->
+<!-- 			<button ng-if="(currentEntity.numOfFilters.total || currentEntity.columnsChanged)&& currentState.view.default"
+					class="btn"
+					style="margin-right:5px; margin-top:3px; background-color:#199EDA; color:#fff; border-radius:2px;"
+					ng-click="viewAction('Save')">
+			    Save View
+			</button> -->
+
+			<a href="" ng-if="(currentEntity.numOfFilters.total || currentEntity.columnsChanged)&& currentState.view.default"><b><icon class="bi_interface-circle-plus"></icon> Save View</b></a>
+
+			<!-- //update view -->
+			<button ng-if="currentEntity.numOfFilters.total && !currentState.view.default"
+					class="btn" 
+					style="margin-right:5px; margin-top:3px; background-color:#199EDA; color:#fff; 		border-radius:2px;"
+					ng-click="viewAction('Update')">
+			   	Update View
+			 </button>
+
+			<!-- search -->
+<!-- 			<div class="form-group innerSearch">
+			<icon class="innerSearchIcon bi_interface-search"></icon>
+			<input class="form-control" type="text" id="searchEntity" placeholder="Search Opportunities..." ng-focus="innerFocused = true" ng-blur="innerFocused = false" ng-class="{'isFocused': innerFocused}">
+			</div> -->
+
+<!-- 			<div class="innerSearch" ng-class="{'isFocused': focused}">
+			<i class="bi_interface-search" uib-tooltip="Search Opportunites" tooltip-placement="top"></i>
+		      <input type="text" class="form-control" placeholder="Search Opportunities..." ng-focus="focused = true" ng-blur="focused = false" ng-model="data.innerSearch">
+		    </div>  -->
+
+		     <input autofocus class="localSearch form-control" ng-if="showSearch" type="text" placeholder="Search Opportunities..." ng-model="data.innerSearch" >
+
+			<i ng-click="showSearch = !showSearch" class="bi_interface-search" uib-tooltip="Search Opportunites" tooltip-placement="top" ng-class="{'searchOpen': showSearch}"></i>
+
+			<i class="bi_interface-refresh" uib-tooltip="Refresh View" tooltip-placement="top"></i>
+			<i ng-hide="data.viewType == 'cards' || data.viewType == 'timeline'" ng-click="panelAction('Open','ColumnsPanel')" class="bi_layout-third-v" uib-tooltip="Adjust Columns" tooltip-placement="top" ></i>
+			<i ng-click="panelAction('Open', 'RefinePanel')" class="bi_setting-eq-a" uib-tooltip="Apply Filters" tooltip-placement="top"></i>
+						<!-- <span class="clear-all" ng-click="viewAction('ClearFilters')">Clear All</span></p> -->
+<!-- 				<p style="margin-top:8px;" class="light" ng-if="!currentEntity.numOfFilters.total > 0">No filters applied, No Columns Changed</p>
+				<p style="margin-top:8px;" class="light" ng-if="currentEntity.numOfFilters.total > 0"><span>{{currentEntity.numOfFilters.total}} filters applied</span> -->
+		</div>
+
+	</div>
+
+	<div class="innerContainer" ng-show="data.viewType === 'list'">
+
+		<div class="grid-container">
+
+		<div class="inner-loop-loader" ng-if="interloopSpinner"> 
+			  <div class="loader-inner ball-triangle-path"> 
+			    <div></div>
+			    <div></div>
+			    <div></div>
+			  </div>
+			</div>
+			
+			<div ag-grid="currentEntity.gridOptions" class="ag-loop" style="height: 100%;"></div>
+		</div>
+		
+	</div>
+
+</div>
+	
+
+</div>
+
+

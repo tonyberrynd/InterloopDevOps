@@ -1,0 +1,106 @@
+// .btn {
+//     padding: 10px 25px;
+//     border-radius: 24px;
+//     font-size: 12px;
+//     border: 0 none;
+//     font-weight: 700;
+//     letter-spacing: .5px;
+//     text-transform: uppercase;
+
+//     &:hover {
+//         opacity: .92;
+//     }
+// }
+
+.toolbar-item {
+    position: relative;
+    display: inline-block;
+}
+
+.toolbar-badge {
+    background-color:$topaz;
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: 50;
+    font-size:12px;
+
+    icon {
+        font-size:10px;
+    }
+}
+
+.badge.toolbar-badge {
+    background-color:$topaz;
+}
+
+.badge {
+    background-color:$gravel;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: $topaz;
+    color: $diamond;
+}
+
+.btn-emerald {
+    background-color:$emerald;
+    color:$diamond;
+
+    &:hover {
+        color:$diamond;
+    }
+
+    &:visited,
+    &:focus {
+        color:$diamond;
+    }
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: darken($topaz, 3%);
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: darken($topaz, 3%);
+    box-shadow: none;
+}
+
+//inline
+
+.btn.inline {
+    display: inline-block;
+}
+
+.btn.btn-clear {
+    background-color:transparent;
+    border:none;
+    box-shadow:none !important;
+
+    &:hover {
+        color:$flint;
+    }
+}
+
+//.btn-outline buttons
+
+
+.btn.btn-outline {
+    background: none;
+
+    &:focus {
+        opacity: .8;
+    }
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.btn-primary.btn-outline {
+    border: 1px solid $topaz;
+    color: $topaz;
+}

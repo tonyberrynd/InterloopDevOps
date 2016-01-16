@@ -1,0 +1,49 @@
+{
+  "name": "Entity",
+  "plural": "Entities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "qualifiers": {
+      "type": "object"
+    }, 
+    "customFields": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "activities": {
+      "type": "hasMany",
+      "model": "Activity",
+      "through": "ActivityLink",
+      "polymorphic": {
+        "foreignKey": "entityId",
+        "discriminator": "entityType"
+      }
+    },
+    "_status": {
+      "type": "embedsOne",
+      "model": "PicklistItem",
+      "property": "status"
+    },
+    "_accountManager": {
+      "type": "embedsOne",
+      "model": "PicklistItem",
+      "property": "accountManager", 
+      "forceId": true
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

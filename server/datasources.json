@@ -1,0 +1,45 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory",
+    "file": "testLoop-data.json"
+  },
+  "mongoDB": {
+    "host": "candidate.33.mongolayer.com",
+    "port": 11082,
+    "database": "majorityStrategiesDemo",
+    "username": "interloop",
+    "password": "L00p2016!",
+    "name": "mongoDB",
+    "connector": "mongodb"
+  },
+  "mongoDBProd": {
+    "host": "candidate.33.mongolayer.com",
+    "port": 11082,
+    "database": "majorityStrategies",
+    "username": "interloop",
+    "password": "L00p2016!",
+    "name": "mongoDB",
+    "connector": "mongodb"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "mandrill": {
+    "name": "mandrill",
+    "connector": "lb-connector-mandrill",
+    "apikey": "AzUxCaEFtLordbvG3WKxhQ"
+  }, 
+  "cloudStore": {
+    "password": "cd8353b66a64de7867747ee95a5ca22e4de74b2167104a737faadb6812913724",
+    "name": "cloudStore",
+    "connector": "loopback-component-storage",
+    "provider": "openstack",
+    "username": "SLOS725995-2:SL725995",
+    "authUrl": "https://dal05.objectstorage.softlayer.net",
+    "useInternal": false,
+    "version": 1,
+    "useServiceCatalog": true
+  }
+}

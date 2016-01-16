@@ -1,0 +1,31 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+            <h3 class="modal-title">New Task</h3>
+            <p>Enter the following information to create a new task</p>
+  </div>
+
+<div class="modal-body">
+            <form name="newViewForm" novalidate>
+        
+
+          <form role="form">
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input autofocus type="email" class="form-control" id="email">
+              </div>
+
+              <div class="checkbox">
+                <label><input type="checkbox"> Mark as Complete</label>
+              </div>
+
+
+
+        </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Create</button>
+</div>

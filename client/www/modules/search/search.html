@@ -1,0 +1,154 @@
+
+<div class="inner noScroll">
+
+  <div class="innerContainer" style="padding:20px;">
+
+	<div class="row">
+   <div class="col-xs-9">
+
+
+     
+
+
+
+
+
+   
+
+   <p style="display:inline;" class="subtitle"><span ng-if="count" ng-bind-template="({{resultCount}})"></span> Results for "{{thisSearchQuery}}"</p>
+   <p style="display:inline;" class="subtitle pull-right">3 Results</p>
+    <hr>
+
+       <div class="search-results">
+
+
+<!--   <a href class="search-card" ng-repeat="opportunity in data.opportunityResults"ng-animate="{enter:'enter-card'}">
+  <div class="result-type">
+    <icon class="bi_sport-trophy-a"></icon>
+  </div>
+  <div class="result-details">
+    <h3>{{opportunity.name}}</h3>
+    <small><p>{{opportunity.value}}</p></small>
+    <i class="goToCard bi_interface-right"></i>
+  </div>
+  </a> -->
+
+  <p class="subtitle">Opportunities</p>
+   <div class="list-group">
+    <a href="" ng-repeat="opportunity in data.opportunityResults" class="list-group-item">
+      <h5 class="list-group-item-heading">{{opportunity.name}}</h5>
+      <p class="list-group-item-text">{{opportunity.value | currency:"USD$"}}</p>
+    </a>
+  </div>
+
+
+ <!--  <div class="panel">
+    <div class="panel-heading" style="border-bottom:solid 1px #f5f7f9;">
+      <span style="font-weight:600; text-transform:uppercase;">Opportunities</span>
+    </div>
+    <div class="panel-body">
+      <div class="list-group" >
+        <a ng-repeat="opportunity in data.opportunityResults" href="#" class="list-group-item">{{opportunity.name}}</a>
+      </div>
+    </div>
+  </div>
+
+   <div class="list-group">
+    <a href="#" class="list-group-item active">
+      <h4 class="list-group-item-heading">First List Group Item Heading</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+ -->
+  
+
+
+   </div>
+   </div>
+   <div class="col-xs-3">
+
+
+
+    <p class="subtitle">Recent Searches</p>
+
+     <div class="panel panel-default">
+  <div class="panel-heading">
+  <icon class="fa fa-clock-o"></icon> Recent Searches
+
+  <div ng-if="activeUser.recentSearches" class="pull-right badge" style="cursor:pointer; background-color:grey;" ng-click="clearRecentSearches()">
+    Clear
+  </div>
+  </div>
+
+  <div class="panel-body">
+    
+  <p ng-repeat="search in activeUser.recentSearches | reverse track by $index"><a href="" ng-click="applySearch(search)"><icon class="fa fa-clock"></icon> {{search}}</a></p>
+
+  <p style="margin:15px 0;" ng-if="!activeUser.recentSearches.length" class="text-center">No Recent Searches</p>
+
+
+    </div>
+  </div>
+   
+   </div>
+  </div>
+
+  </div>
+</div>
+
+
+
+<!-- <div class="loop-loader" ng-if="data.showLoader"> 
+  <div class="loader-inner ball-triangle-path"> 
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div> -->
+
+ <!--  <div class="panel panel-default" ng-if="data.opportunityResults.length">
+  <div class="panel-heading">Opportunities
+
+  </div>
+  <div class="panel-body">
+  
+
+     <p ng-repeat="opportunity in data.opportunityResults">
+      <a ng-href="/opportunities/{{opportunity.id}}">{{opportunity.name}}</a>
+      </p>
+
+  </div>
+</div>
+
+  <div class="panel panel-default" ng-if="data.contactResults.length">
+  <div class="panel-heading">Contacts
+
+  </div>
+  <div class="panel-body">
+
+      <p ng-repeat="contact in data.contactResults">
+      <a ng-href="/contacts/{{contact.id}}">{{contact.fullName}}</a>
+      </p>
+
+  </div>
+</div>
+
+  <div class="panel panel-default" ng-if="data.companyResults.length">
+  <div class="panel-heading">Organizations
+
+  </div>
+  <div class="panel-body">
+  
+    <p ng-repeat="company in data.companyResults">
+      <a ng-href="/companies/{{company.id}}">{{company.name}}</a>
+    </p>
+      
+
+  </div>
+</div> -->
+
+
+
+	
+
+
+

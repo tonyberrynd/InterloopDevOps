@@ -1,0 +1,37 @@
+{
+  "name": "Process",
+  "plural": "Processes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }, 
+    "currentStage": {
+      "type": "object"
+    }, 
+    "currentStep": {
+      "type": "object"
+    }, 
+    "stages": {
+      "type": ["object"]
+    } 
+  },
+  "validations": [],
+  "relations": {},
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

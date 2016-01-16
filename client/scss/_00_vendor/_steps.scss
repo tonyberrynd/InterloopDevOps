@@ -1,0 +1,85 @@
+.steps-container {
+    padding:10px 0 0px 0;
+    margin:auto;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  color: #849397;
+}
+.steps > li {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  font-size: 0.8em;
+}
+.steps > li:before {
+  content: attr(data-step);
+  display: block;
+  margin: 0 auto;
+  background: $pumice;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  margin-bottom: 0.25em;
+  line-height: 2em;
+  border-radius: 100%;
+  position: relative;
+  z-index: 1000;
+}
+.steps > li:after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: $pumice;
+  width: 100%;
+  height: 0.25em;
+  top: .8em;
+  left: 50%;
+  margin-left: 1.5em\9;
+  z-index: 0;
+}
+.steps > li:last-child:after {
+  display: none;
+}
+.steps > li.is-complete {
+  color: $emerald;
+}
+.steps > li.is-complete:before, .steps > li.is-complete:after {
+  color: #FFF;
+  background: $emerald;
+}
+.steps > li.is-active {
+  color: $topaz;
+}
+.steps > li.is-active:before {
+  color: #FFF;
+  background: $topaz;
+}
+
+/**
+ * Needed for IE8
+ */
+.steps__last:after {
+  display: none !important;
+}
+
+/**
+ * Size Extensions
+ */
+.steps--medium {
+  font-size: 1.5em;
+}
+
+.steps--large {
+  font-size: 2em;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}

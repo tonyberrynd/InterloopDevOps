@@ -1,0 +1,32 @@
+.banner {
+	@include transition(all 0.5s ease-in-out);
+	display: none;
+	text-align: center;
+	color:$diamond;
+	background-color:$topaz;
+	height:32px;
+	padding:5px 15px;
+	font-weight:600;
+
+	> .closeBanner {
+		position: absolute;
+		right:8px;
+		top:6px;
+		font-size:14px;
+		color:rgba(255,255,255,.75);
+		cursor:pointer;
+
+		&:hover {
+			color:rgba(255,255,255,1);
+		}
+	}
+}
+
+.banner.lg {
+	height:50px;
+	padding:5px 15px;
+}
+
+.banner.isShown {
+	display: block;
+}

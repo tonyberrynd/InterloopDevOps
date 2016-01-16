@@ -1,0 +1,37 @@
+{
+  "name": "HistoryLink",
+  "plural": "HistoryLink",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "history": {
+      "type": "belongsTo",
+      "model": "History",
+      "foreignKey": ""
+    },
+    "entity": {
+      "type": "belongsTo",
+      "model": "Entity",
+      "polymorphic": {
+        "as": "entityLink",
+        "idType": "string",
+        "foreignKey": "",
+        "discriminator": "entityType"
+      }
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

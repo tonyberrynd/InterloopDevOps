@@ -1,0 +1,40 @@
+{
+  "name": "Step",
+  "plural": "Steps",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    },
+    "action": {
+      "type": "object"
+    }, 
+    "completed": {
+      "type": "boolean"
+    }, 
+    "startedDate": {
+      "type": "date"
+    }, 
+    "completedDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+    "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "methods": []
+}

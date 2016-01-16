@@ -1,0 +1,402 @@
+.tasks {
+
+   // display: -webkit-flex;
+   // display: flex;
+   // -webkit-flex-direction: column;
+   // flex-direction: column;
+   // -webkit-align-items: center;
+   // align-items: center;
+   // -webkit-justify-content: center;
+   // justify-content: center;
+
+// display: block;
+// margin:auto;
+
+	.tasks-panel {
+		margin:auto;
+		margin-top:40px;
+		 	width:840px;
+	   	background-color:$diamond;
+	   	border:solid 1px $pumice;
+	   	box-shadow:none;
+	   	border-radius:4px;
+	   	min-height:300px;
+	   	padding:5px;
+	   	    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+	}
+
+	.row {
+		margin:0;
+	}
+
+	.task-group {
+		cursor:pointer;
+	}
+
+	.task-group:hover .icon {
+		color:$topaz;
+	}
+
+	.task-group.active {
+		color:$charcoal;
+	}
+
+	.task-group.active .icon {
+		color:$topaz;
+	}
+
+	.tasks-header {
+		height:54px;
+		width:100%;
+		padding:10px;
+		text-align: left;
+		font-size:1em;
+		font-weight:700;
+		color:$slate;
+	}
+
+
+	.tasks-header .icon {
+		font-size:1.2em;
+		margin-top:5px;
+		color:$gravel;
+	}
+
+	 .tasks-enter {
+	 	height:40px;
+	 	padding:0 10px;
+	 }
+
+	  .tasks-enter input {
+	 	width:100%;
+	 	border-radius: 4px;
+	 	border:solid 1px $pumice;
+	 	padding:8px;
+	 } 
+
+}
+
+.type-picker {
+	width: 75px;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    border: none;
+    box-shadow: none;
+    outline:none !important;
+}
+
+.picker-icon {
+	position: absolute;
+	right:79px;
+	top:5px;
+	font-size:20px;
+	color:$gravel;
+}
+
+.type-picker:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.task-list.ng-enter           { animation: none !important; }
+.task-list.ng-leave           { animation: none !important; }
+
+//sub task views
+
+.task-items {
+		padding:10px 15px;
+		list-style:none;
+		color:$charcoal;
+
+		.task-item {
+			padding:5px;
+		display: block;
+		height:50px;
+		border-bottom:solid 1px $pumice;
+		position: relative;
+		
+	}
+
+	  .task-item.ng-enter           { animation: fadeIn 0.1s both ease-in; z-index: 8888; }
+  		// .task-item.ng-leave           { animation: fadeOut 0.1s both ease-in; z-index: 9999; }
+
+	.task-item.complete {
+		background-color:$flint;
+	}
+
+	.task-item.selected {
+		background-color:$limestone;
+	}
+
+	.task-item.selected .task-actions {
+		background-color:$limestone;
+	}
+
+	.task-check {
+		float:left;
+		width:30px;
+
+	}
+
+	.task-check .checkbox {
+		padding: 0px 7px;
+	}
+
+	.task-body {
+		width: 100%;
+	    display: block;
+	    height: 100%;
+	    margin-left: 20px;
+	    cursor: pointer;
+	}
+
+	.task-due-date {
+		padding:0 10px 0 0; 
+		border-right:solid 1px $pumice;
+		float:left;
+		height:36px;
+		line-height: 40px;
+		font-size:.8em;
+		margin-right:10px;
+		color:$slate;
+	}
+
+	.task-due-date.late {
+		color:$ruby;
+	}
+
+	.task-due-date icon {
+		display: inline-block;
+	}
+
+	.task-due-date p {
+		display: inline-block;
+	}
+
+	.task-item:hover .task-actions {
+		display: inline-block;
+	}
+
+	.task-item.action-selected .task-actions {
+		display:inline-block;
+	}
+
+	.task-actions {
+		position: absolute;
+		right:0px;
+		top:8px;
+		color:$slate;
+		padding:6px;
+		font-size:16px;
+		display:none;
+		background-color:#fff;
+	}
+
+	.task-actions .action {
+		margin:0 5px;
+		display: inline-block;
+		cursor:pointer;
+	}
+
+	.task-actions .action a {
+		color:$slate;
+		text-decoration: none;
+	}
+
+	.task-actions .action a:hover,
+	.task-actions .action:hover {
+		color:$charcoal;
+	}
+
+	.task-actions.now .action.now,
+	.task-actions.now .action.now a
+	 {
+		color:$topaz;
+	}
+
+	.task-actions.later .action.later,
+	.task-actions.later .action.later a {
+		color:$topaz;
+	}
+
+	.task-actions.someday .action.someday,
+	.task-actions.someday .action.someday a {
+		color:$topaz;
+	}
+
+	.completed-time {
+		float:right;
+		color:$slate;
+		font-weight:300;
+		position: absolute;
+		right:10px;
+		top:15px;
+	}
+
+
+
+	.task-description {
+		float:left;
+		line-height: 40px;
+	}
+
+	.group-text {
+		font-weight:500;
+		border-bottom: solid 1px $pumice;
+		// background-color:$limestone;
+	    margin: 0px;
+	    padding: 10px;
+	}
+
+	.later-picker > li > a {
+		color:$charcoal !important;
+	}
+
+
+}
+
+
+.task-emptyState {
+	padding:50px;
+
+	.icon {
+		font-size:40px;
+		color:$topaz;
+	}
+}
+
+	
+
+	.feed-item {
+		position: relative;
+		display: block;
+		width:100%;
+		margin-bottom:5px;
+		min-height:40px;
+	}
+
+	.feed-item .feed-icon {
+		display: block;
+		position: absolute;
+		top:5px;
+		left:0px;
+		width:16px;
+		height:16px;
+		border-radius: 4px;
+		text-align:center;
+		color:$diamond;
+		background-color:$topaz;
+		line-height: 16px;
+		font-size:10px;
+	}
+
+	.feed-item .feed-text {
+		display: block;
+		position: absolute;
+		left:24px;
+	}
+
+	.feed-item .feed-text p {
+		margin:0px;
+	}
+
+	.feed-item .feed-date {
+		color:$gravel;
+	}
+
+.file-card {
+	position: relative;
+	width:100%;
+	padding:10px;
+	margin:10px 0;
+	border-radius: 4px;
+	border:solid 1px $pumice;
+	box-shadow: 0px 1px 0px 0px #E9EFF2;
+	-webkit-box-shadow: 0px 1px 0px 0px #E9EFF2;
+	cursor:pointer;
+}
+
+.file-card h3 {
+	margin:0px;
+	margin-left:40px;
+	font-size:1.1em;
+	color:$charcoal;
+}
+
+.file-card h5 {
+	display: inline-block;
+	margin:0px;
+	margin-left:40px;
+	font-size: .8em;
+	color:$gravel;
+	font-weight:300;
+	margin-top:5px;
+}
+
+.file-card span {
+	position: absolute;
+	top:12px;
+	font-size:32px;
+	color:$gravel;
+}
+
+.file-card p {
+	float:right;
+	font-size:.8em;
+	color:$gravel;
+	font-weight: 300;
+}
+
+input.completed-task {
+	text-decoration: line-through;
+}
+
+.file-download {
+	display: none;
+	font-size:24px;
+	color:$gravel;
+	position: absolute;
+	top:10px;
+	right:15px;
+}
+
+
+.file-card:hover .file-download {
+	display: block;
+}
+
+.file-card:hover .file-download a {
+	color:$gravel;
+}
+
+.file-card:hover .file-download a:hover {
+	color:$cobalt;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+.task-type-indicator {
+	position: absolute;
+	right:15px;
+	top: 15px;
+	color:$gravel;
+}
+

@@ -1,0 +1,52 @@
+{
+  "name": "Contact",
+  "plural": "Contacts",
+  "base": "Entity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    }, 
+    "email": {
+      "type": "string"
+    }, 
+    "phone": {
+      "type": "string"
+    }, 
+    "notes": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": ""
+    }, 
+    "opportunities": {
+      "type": "hasMany",
+      "model": "Opportunity",
+      "through": "OppContactLink", 
+      "foreignKey": ""
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,94 @@
+.popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: none;
+    max-width: 276px;
+    padding: 1px;
+    font-family: inherit;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: normal;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid $pumice;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    line-break: auto;
+}
+
+.popover-content {
+  padding: 15px;
+  min-width: 250px;
+}
+
+.popover-content input {
+	border:none;
+	border-bottom:solid 1px $gravel;
+	border-radius: 0px;
+}
+
+.popover-content label {
+	font-size:12px; 
+	color:$gravel;
+	text-transform: uppercase;
+	font-weight:600;
+}
+
+.popover-content .btn {
+	padding:6px 15px !important;
+}
+
+.popover-content .save {
+	color:$topaz;
+}
+
+.popover-content .confirm {
+	text-align:right;
+}
+
+.popover-content .confirm a {
+	padding:0 5px;
+}
+
+.popover-title {
+    padding: 8px 14px;
+    margin: 0;
+    font-size: 14px;
+    color:$slate;
+    background-color: $diamond;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+}
+
+.close-popover {
+	position: absolute;
+	top:8px;
+	right:8px;
+	color:$slate;
+	font-size:14px;
+}
+
+
+.popover.bottom>.arrow {
+    top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0,0,0,.15);
+}

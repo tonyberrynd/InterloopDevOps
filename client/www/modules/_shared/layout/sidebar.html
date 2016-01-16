@@ -1,0 +1,115 @@
+
+        <!-- sidebar-header -->
+        <div class="">
+
+            <span uib-keyboard-nav uib-dropdown dropdown-append-to-body on-toggle="toggled(open)">
+              <a class="sidebar-header" href id="settings-dropdown" uib-dropdown-toggle>
+              <img class="img-lg" src="/assets/img/interloop-white.png" alt="Interloop">
+                       <h3>
+                    <i class="settings icon bi_interface-bottom"></i>
+                    </h3>
+                    <img class="img-sm" src="/assets/img/interloop.svg" alt="Interloop">
+                <!--     <h5>Majority Strategies</h5> -->
+              
+              </a>
+              <ul class="settings-dropdown uib-dropdown-menu" ng-class="{'shrink' : $root.shrink}" aria-labelledby="settings-dropdown">
+              <p class="dropdown-header" ng-bind="currentState.org.name">
+                  Interloop
+              </p>
+                <li>
+                  <a href ng-click="accountSettings('general')">Account Settings</a>
+                </li>
+                <li>
+                  <a href ng-click="accountSettings('team')">Manage Your Team</a>
+                </li>
+                <li>
+                  <a href ng-click="accountSettings('integrations')">Intregations & Connections</a>
+                </li>
+                <li>
+                  <a href ng-click="accountSettings('customize')">Customize Interloop</a>
+                </li>
+                 <li>
+                  <a href ng-click="showCheatSheat()">Keyboard Shortcuts</a>
+                </li>
+                <li class="divider"></li>
+                 <li>
+                  <a href>Invite Members</a>
+                </li>
+
+              </ul>
+            </span>
+
+
+        </div>
+        <!-- sidebar-nav -->
+        <ul class="sidebar-nav">
+                <li class="title">
+                    Main
+                </li>
+                
+                <!-- //Loop main views -->
+                 <li class="item" ng-repeat="entity in currentState.org.entityConfig | orderObjectBy: 'order' | filter: {showInNav: true}" ng-class="{active: currentState.entityType === entity.type && (currentState.view.default || !currentState.view)}" tooltip-enable="$root.shrink" uib-tooltip="{{entity.plural}}" tooltip-placement="right">
+                    <a href="" ng-click="selectView(entity.type)">
+
+
+                        <i class="icon {{entity.icon}}"></i>
+
+                        <span ng-bind="entity.plural">Loading...</span>              
+                    </a>
+                </li>
+
+                <!-- divider -->
+                <li class="divider"></li>
+
+                <!-- views -->
+                <li class="title">
+                    Views
+                    <span ng-if="currentState.viewCount" class="count" ng-bind-template="({{currentState.viewCount}})"></span>
+                    <span ng-click="allViews()" class="all" tooltip-placement="top" uib-tooltip="All Views"><i class="bi_doc-list"></i></span>
+                </li>
+
+
+                <li class="item view" ng-repeat="view in currentState.views | filter: {hidden: false, default: false} | limitTo: 'data.viewLength' | orderBy: 'name' " ng-class="{active: currentState.view.id === view.id}">
+                    <a href ng-click="selectView(view.entityType, view)" class="view-item item item-icon-left" tooltip-enable="$root.shrink" uib-tooltip="{{view.name}}" tooltip-placement="right">
+                        <div class="viewIcon">
+
+                        <i class="icon bi_sport-trophy-a" ng-if="view.entityType == 'Opportunity'"></i>
+
+                        <i class="icon bi_user-alt-group" ng-if="view.entityType == 'Contact'"></i>
+
+                        <i class="icon bi_building-office-b" ng-if="view.entityType == 'Company'"></i>
+
+                        <i ng-class="icon bi_web-graph" ng-if="view.entityType == 'Analytic'"></i>
+
+                        </div>
+                        <span ng-bind="view.name">Loading...</span>
+                        
+                        <i class="toHide bi_interface-circle-cross" tooltip-placement="top" uib-tooltip="Hide View" class="edit-view" ng-click="hideView(view)"></i>
+                    </a>
+                </li>         
+
+                <!-- divider -->
+                <li class="divider"></li>
+
+                <!-- views -->
+                <li class="title">
+                    Team
+                    <span ng-if="data.accountManagers.length" class="count" ng-bind-template="({{data.accountManagers.length}})"></span>
+                    <span class="all" ng-click="allMembers()" tooltip-placement="top" uib-tooltip="All Members"><i class="bi_doc-list"></i></span>
+                </li>
+
+                <li class="item" ng-repeat="member in data.accountManagers | limitTo: 10" ui-sref="base.profile({userId: member.id})" tooltip-enable="$root.shrink" uib-tooltip="{{member.fullName}}" tooltip-placement="right">
+                    <a href="#/profile/3">
+                        <div class="avatar small" ng-class="member.avatar_color">
+                         {{getInitials(member.fullName) }}
+                         <div class="presence" ng-class="{'active' : member.presence == 'active'}"></div>
+                        </div>
+                        <span ng-bind="member.fullName">Loading...</span>
+                        <i class="toHide bi_interface-circle-cross" tooltip-placement="top" uib-tooltip="Hide Member"></i>
+                    </a>
+                </li>
+
+                <!-- divider -->
+                <li class="divider"></li>
+                
+            </ul>

@@ -1,0 +1,25 @@
+
+<!-- //banner that pushes whole wrapper down -->
+<!-- <div class="banner isShown">
+	<p>Alert! here is something important</p>
+	<icon class="closeBanner bi_interface-cross"></icon>
+</div> -->
+
+<div class="wrapper">
+	<!-- sidebar -->
+	<div class="sidebar" ng-class="{'shrink' : $root.shrink}">
+		<div ng-include="'modules/_shared/layout/sidebar.html'"></div>
+	</div>
+	<!-- main -->
+	<div class="main">
+		<div ng-include="'modules/_shared/layout/nav.html'"></div>
+		<!-- //main view -->
+
+		<div ui-view></div>
+	
+					<!-- side panels -->
+		<div data-panels="true"></div>
+		<!-- side panels -->
+	</div>
+
+</div>

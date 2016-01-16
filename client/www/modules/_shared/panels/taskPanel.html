@@ -1,0 +1,266 @@
+<div class="side-panel">
+
+
+	<div class="panel-head">
+		<div class="panel-close">
+			<button type="button" class="close" data-ng-click="panels.close()" tooltip-placement="bottom" uib-tooltip="Close Panel">×</button>
+		</div>
+		<div class="sidepanel-title">
+			<!-- //actions -->
+			<div class="btn-group" role="group" aria-label="...">
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Move to Inbox" class="btn btn-default" ng-class="{ 'btn-primary': taskGroup == 'inbox' }" ng-click="setNow()" ng-disabled="thisTask.completed_date"><icon class="icon_drawer" ></icon></button>
+
+			   <button type="button" tooltip-placement="bottom" uib-tooltip="Schedule for Later..." class="btn btn-default" ng-class="{ 'btn-primary': taskGroup == 'later' }" ng-disabled="thisTask.completed_date"><icon class="icon_calendar"></icon></button>
+
+			    <button type="button" tooltip-placement="bottom" uib-tooltip="Schedule for Someday" class="btn btn-default" ng-class="{ 'btn-primary': taskGroup == 'someday' }" ng-click="setSomeday()" ng-disabled="thisTask.completed_date"><icon class="icon_pushpin"></icon></button>
+
+			     <button ng-if="!thisTask.completed_date" type="button" tooltip-placement="bottom" uib-tooltip="Complete Task" class="btn btn-default" ng-class="{ 'btn-primary': taskGroup == 'completed' }" ng-click="completeTask()"><icon class="icon_box-checked" ></icon></button>
+
+			      <button ng-if="thisTask.completed_date" type="button" tooltip-placement="bottom" uib-tooltip="Mark Uncomplete" class="btn btn-default" ng-class="{ 'btn-primary': taskGroup == 'completed' }" ng-click="notComplete()"><icon class="icon_box-checked" ></icon></button>
+			</div>
+		</div>
+
+		<div class="panel-more">
+	<!-- 		<button type="button" class="more" data-ng-click="panels.close()" tooltip-placement="bottom" tooltip="Close Panel"><icon class="fa fa-ellipsis-h"></icon></button> -->
+			<div class="btn-group" uib-dropdown is-open="status.isopen">
+		      <button id="single-button" type="button" class="more" uib-dropdown-toggle ng-disabled="disabled" >
+		        ...
+		      </button>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+		        <li role="menuitem"><a href="#"><span class="icon_printer-alt"></span> Print Task</a></li>
+		        <li class="divider"></li>
+		        <li role="menuitem" ng-click="deleteTask()"><a href=""><span class="icon_trash"></span> Delete Task</a></li>
+		      </ul>
+		    </div>
+
+		</div>
+	</div>
+
+	<div class="panel-body">
+
+	<!-- panel grid -->
+	<div class="panel-grid">
+
+		<!-- Task Subject -->
+		<div class="row subject">
+			<div class="col-xs-12">
+				<input ng-class="{ 'completed-task' : taskGroup == 'completed'}" type="text" id="subject" placeholder="" ng-model="thisTask.subject" ng-blur="updateSubject()">
+				<!-- <p>{{thisTask.subject}}</p> -->
+			</div>
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-6 border-r">
+			<span class="title">
+				Lead
+			</span>
+			<a href="">Add lead...</a>
+			</div>
+
+			<div class="col-xs-6">
+			<span class="title">
+				Contact
+			</span>
+
+			<!-- need to set due date -->
+			<span>
+		      <a href="">
+		        Add Contact...
+		      </a>
+		    </span>
+
+
+			</div>
+		</div>
+		
+		<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-6 border-r">
+			<span class="title">
+				Assigned To
+			</span>
+			<a href="">{{thisTask.assigned_to}}</a>
+			</div>
+
+			<div class="col-xs-6">
+			<span class="title">
+				Due Date
+			</span>
+			<!-- //has due date -->
+			<div ng-class="{ late: todaysDate.isAfter(thisTask.due_date)}" ng-if="thisTask.due_date" class="task-due-date">
+			<span ng-if="thisTask.due_date" uib-dropdown on-toggle="toggled(open)">
+		      <a href id="simple-dropdown" uib-dropdown-toggle>
+		        <icon class="fa fa-flag"></icon>
+				{{ thisTask.due_date | amDateFormat:'MMMM Do YYYY'}}
+		      </a>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" aria-labelledby="simple-dropdown">
+		      <!-- //pick date time -->
+		        <datetimepicker ng-model="newDueDate" 
+                data-on-set-time="onTimeSet(thisTask, newDueDate)"
+                >
+				</datetimepicker>
+
+		      </ul>
+		    </span>
+				
+			</div>
+
+			<!-- need to set due date -->
+			<span ng-if="!thisTask.due_date" uib-dropdown on-toggle="toggled(open)">
+		      <a href id="simple-dropdown" uib-dropdown-toggle>
+		        Set a due date ...
+		      </a>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" aria-labelledby="simple-dropdown">
+		      <!-- //pick date time -->
+		        <datetimepicker ng-model="newDueDate" 
+                data-on-set-time="onTimeSet(thisTask, newDueDate)"
+                >
+				</datetimepicker>
+
+		      </ul>
+		    </span>
+
+
+			</div>
+		</div>
+		<!-- end row -->
+
+
+<!-- 		<div class="row detail">
+			<div class="col-xs-12">
+			<span class="title">
+				Repeat
+			</span>
+			<a href=""><icon class="fa fa-repeat"></icon> Set to repeat...</p>
+			</div>
+
+		</div> -->
+
+
+
+		<!-- row -->
+		<div class="row detail">
+			<div class="col-xs-12">
+			<span class="title">
+				Description
+			</span>
+
+			<div class="editor">
+			<button style="position:absolute; right:15px; top:20px;" class="btn btn-clear" ng-click="saveDescription()"><icon class="fa fa-save"></icon></button>
+			<ng-quill-editor ng-model="taskDescription" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="bold list bullet italic underline strike color link" editor-required="true" required="" error-class="input-error" placeholder="add a description..." ng-blur="updateDescription()"></ng-quill-editor>
+			</div>
+			
+			</div>
+		</div>
+		<!-- end row -->
+
+		<!-- row -->
+		<div class="row detail">
+			<div class="col-xs-12">
+			<span class="title">
+				Attachments <span ng-if="thisTask.attachments.length">({{thisTask.attachments.length}})</span>
+			</span>
+
+			<button ng-disabled="disableUpload" class="fileUpload btn btn-default btn-block" >
+			    <span><icon class="fa fa-paperclip"></icon> add from your computer</span>
+			    <input type="file" class="upload" nv-file-select uploader="uploader"/>
+			</button>
+
+
+			<div class="attachments">
+				
+			<div class="file-card" ng-repeat="file in thisTask.attachments | orderBy: $index | limitTo: 5">
+			<a href="{{file.url}}" target="_blank">
+				<span class="icon_document_alt"></span>
+				<h3>{{file.name}}</h3>
+				<h5>{{file.size/1024/1024|number:1 }} MB</h5>
+				<!-- <h5 class="pull-right"></h5> -->
+				<!-- //loader -->
+				<div ng-if="$last && uploader.progress > 0" ng-hide="uploader.progress == 100" class="progress" style="">
+                    <div class="progress-bar" role="progressbar"
+                         ng-style="{ 'width': uploader.progress + '%' }"></div>
+                </div>
+			</a>
+			<div class="file-download" tooltip-placement="left" uib-tooltip="Download File">
+			<a href="">
+				<icon class="fa fa-arrow-circle-o-down"></icon>
+			</a>
+			</div>
+			</div>
+
+
+			</div>
+
+	
+
+
+			<style type="text/css">
+			.progress {
+				height:10px;
+				margin:10px 3px 0px;
+			}
+				</style>
+
+
+
+
+			<!--  <table class="table">
+
+                <tbody>
+                <tr ng-repeat="file in thisTask.attachments">
+                    <td>
+                        <a href="/api/containers/container1/download/{{file.name}}"><strong>{{
+                            file.name }}</strong></a></td>
+                    <td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-xs"
+                                ng-click="delete($index, file.name)"
+                                title="Delete the file">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            Remove
+                        </button>
+
+                    </td>
+                    </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table> -->
+			
+			</div>
+		</div>
+		<!-- end row -->
+
+	</div>
+	<!-- //end task grid -->
+	
+	<div class="panel-footer">
+	<p class="title"><small>TASK HISTORY</small></p>
+
+			<div class="feed-item" ng-repeat="item in thisTask.feed | orderBy: '-date'">
+				<div class="feed-icon">
+					<icon ng-if="item.type == 'created'" class="fa fa-plus"></icon>
+					<icon ng-if="item.type == 'file'" class="fa fa-cloud-upload"></icon>
+					<icon ng-if="item.type == 'assigned'" class="fa fa-mail-forward"></icon>
+					<icon ng-if="item.type == 'due'" class="fa fa-flag"></icon>
+					<icon ng-if="item.type == 'lead'" class="fa fa-building"></icon>
+					<icon ng-if="item.type == 'contact'" class="fa fa-user"></icon>
+					<icon ng-if="item.type == 'complete'" class="fa fa-check"></icon>
+					<icon ng-if="item.type == 'uncomplete'" class="fa fa-square-o"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>{{item.user}}</b> {{item.action}}</p>
+					<p ng-if="item.comment"><i>{{item.comment}}</i></p>
+					<p class="feed-date"><small>{{item.date | amDateFormat:'MMMM Do YYYY h:mm A'}}</small></p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+

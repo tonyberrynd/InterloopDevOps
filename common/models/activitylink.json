@@ -1,0 +1,37 @@
+{
+  "name": "ActivityLink",
+  "plural": "ActivityLinks",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+    "activity": {
+      "type": "belongsTo",
+      "model": "Activity",
+      "foreignKey": ""
+    },
+    "entity": {
+      "type": "belongsTo",
+      "model": "Entity",
+      "polymorphic": {
+        "as": "entity",
+        "foreignKey": "entityId",
+        "discriminator": "entityType"
+      }
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": {}
+}

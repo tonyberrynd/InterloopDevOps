@@ -1,0 +1,44 @@
+<div class="close-button" ng-click="$close()">
+  <i class="bi_interface-cross"></i>
+</div>
+
+  <div class="modal-header">
+       <h3 class="modal-title">User Preferences</h3>
+  </div>
+
+<div class="modal-body no-pad text-center" style="min-height:300px;">
+
+<div class="row">
+	<div class="col-xs-3 text-left" style="padding:10px;">
+		<ul class="nav nav-pills nav-stacked">
+		   <li ng-class="{'active': view_tab == 'profile'}">
+            <a  ng-click="changeTab('profile')" href="">Profile</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'preferences'}">
+            <a ng-click="changeTab('preferences')" href="">Preferences</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'notifications'}">
+            <a  ng-click="changeTab('notifications')" href="">Notifications</a>
+           </li>
+           <li ng-class="{'active': view_tab == 'advanced'}">
+            <a  ng-click="changeTab('advanced')" href="">Advanced</a>
+           </li>
+		</ul>
+	</div>
+	<div class="col-xs-9">
+		<div class="tab-content">
+	        <div class="tab-pane" ng-show="view_tab == 'profile'">
+	           <ng-include src="'modules/_shared/userSettings/profile.html'"></ng-include>
+	        </div>
+	        <div class="tab-pane" ng-show="view_tab == 'preferences'">
+	            <ng-include src="'modules/_shared/userSettings/preferences.html'"></ng-include>
+	        </div>
+	         <div class="tab-pane" ng-show="view_tab == 'notifications'">
+	            This is tab 3 content
+	        </div>
+	         <div class="tab-pane" ng-show="view_tab == 'advanced'">
+	            This is tab 4 content
+	        </div>
+    	</div>
+	</div>
+</div>

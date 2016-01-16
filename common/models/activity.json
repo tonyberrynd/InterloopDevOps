@@ -1,0 +1,60 @@
+{
+  "name": "Activity",
+  "plural": "Activities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "createdAt": "created_date",
+      "updatedAt": "updated_date",
+      "required": false
+    }
+  },
+  "properties": {
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "plannedDate": {
+      "type": "date"
+    },
+    "completedDate": {
+      "type": "date"
+    },
+    "isComplete": {
+      "type": "boolean"
+    },
+    "dueDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "_activityType": {
+      "type": "embedsOne",
+      "model": "PicklistItem", 
+      "property": "type"
+    },  
+   "entities": {
+      "type": "hasMany",
+      "model": "Entity",
+      "through": "ActivityLink", 
+      "foreignKey": "entityId"
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": {}
+}

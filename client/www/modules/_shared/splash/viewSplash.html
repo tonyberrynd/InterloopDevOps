@@ -1,0 +1,63 @@
+ <div class="splash-content text-center">
+
+ <h1 class="splash-title">All Views</h1>
+
+<div class="form-group">
+  <input autofocus type="text" class="form-control search-views-input" id="usr" ng-model="viewSearch" placeholder="Find views by name or description">
+</div>
+
+<div class="view-list text-left" style="overflow-y:auto;">
+
+
+	<div ng-click="selectView(view)" class="row" style="margin:0;" ng-repeat="view in currentState.views | filter:{default:false} | fuzzy: viewSearch | orderBy: 'name'">
+		<div class="col-xs-12 view-item">
+		<div class="view-circle" ng-if="view.entityType == 'Company'">
+			<icon class="view-icon icon_building_alt"></icon>
+		</div>
+
+		<div class="view-circle" ng-if="view.entityType == 'Contact'">
+			<icon class="view-icon icon_group"></icon>
+		</div>
+
+		<!-- opportunity view -->
+		<div class="view-circle" ng-if="view.entityType == 'Opportunity'">
+			<icon class="view-icon fa fa-trophy"></icon>
+		</div>
+			<h5>{{view.name}}
+      <icon class="fa fa-eye" ng-if="!view.hidden"></icon>  
+      <button class="btn btn-clear" ng-click="deleteView($event, view)"><icon class="fa fa-trash-o"></icon>
+			</button></h3> 
+			<p ng-bind="view.description"></p>
+			
+		</div>
+
+		<div class="btn btn-clear" style="position:absolute; right:10px; top:20px; font-size:18px;" ng-click="selectView()">
+		</div>
+			
+
+	</div>
+
+
+
+
+
+</div>
+
+<div ng-show="(data.views | fuzzy:viewSearch).length == 0" style="margin-top:50px;">
+	<icon class="fa fa-search"></icon>
+	<p >No results found for <b>{{viewSearch}}</b></p>
+</div>
+
+
+
+
+<!-- //close button -->
+
+<button class="splash-close" ng-click="$close()">
+	<icon class="bi_interface-cross"></icon>
+	<p>esc</p>
+</button>
+
+
+
+</div>

@@ -1,0 +1,210 @@
+<div class="side-panel">
+
+
+	<div class="panel-head">
+		<div class="panel-close">
+			<button type="button" class="close" data-ng-click="panels.close()" tooltip-placement="bottom" uib-tooltip="Close Panel">×</button>
+		</div>
+		<div class="sidepanel-title">
+			<!-- //actions -->
+			<div class="btn-group" role="group" aria-label="...">
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="icon_mail"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="icon_phone"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="fa fa-user"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="fa fa-check"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="fa fa-trophy"></icon></button>
+
+	
+			</div>
+		</div>
+
+		<div class="panel-more">
+	<!-- 		<button type="button" class="more" data-ng-click="panels.close()" tooltip-placement="bottom" tooltip="Close Panel"><icon class="fa fa-ellipsis-h"></icon></button> -->
+			<div class="btn-group" uib-dropdown is-open="status.isopen">
+		      <button id="single-button" type="button" class="more" uib-dropdown-toggle ng-disabled="disabled" >
+		        ...
+		      </button>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+		        <li role="menuitem"><a href="#"><span class="icon_printer-alt"></span> Export Company</a></li>
+		        <li class="divider"></li>
+		        <li role="menuitem" ng-click="deleteTask()"><a href=""><span class="icon_trash"></span> Delete Company</a></li>
+		      </ul>
+		    </div>
+
+		</div>
+	</div>
+
+	<div class="panel-body grey">
+
+	<!-- panel grid -->
+	<div class="panel-grid">
+
+		<!-- Task Subject -->
+		<div class="row subject">
+			<div class="col-xs-2">
+				<div class="companyScore">
+					{{thisCompany.score}}
+				</div>
+			</div>
+			<div class="col-xs-10" style="padding-left:0px;">
+				<input type="text" id="name" placeholder="" ng-model="thisCompany.name" ng-blur="updateName()">
+				<p ng-if="thisCompany.description"><small>{{thisCompany.description}}</small></p>
+				<p><small><a href="">{{thisCompany.website}}</a></small></p>
+			</div>
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-6 border-r">
+			<span class="title">
+				Account Manager
+			</span>
+			<a href="">Add Manager ...</a>
+			</div>
+
+			<div class="col-xs-6">
+			<span class="title">
+				Status
+			</span>
+
+			<!-- need to set due date -->
+			<span>
+		      <a href="">
+		        Account Status
+		      </a>
+		    </span>
+
+
+			</div>
+		</div>
+		
+		<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Contacts
+			</span>
+			<a href="">Add a contact ...</a>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Qualifiers
+			</span>
+			</div>
+
+			<div class="col-xs-6 qual-select">
+			<label for="">Qualifier 1:</label>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			</div>
+				<div class="col-xs-6 qual-select">
+				<label for="">Qualifier 2:</label>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+				</div>
+				<div class="col-xs-6 qual-select">
+				<label for="">Qualifier 3:</label>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			</div>
+				<div class="col-xs-6 qual-select">
+				<label for="">Qualifier 4:</label>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+				<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Tasks
+			</span>
+			<a href="">Add a task ...</a>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+</div>
+
+		<!-- row -->
+	
+	<div class="panel-footer">
+	<p class="title"><small>COMPANY HISTORY</small></p>
+
+			<div class="feed-item" ng-repeat="item in thisTask.feed | orderBy: '-date'">
+				<div class="feed-icon">
+					<icon ng-if="item.type == 'created'" class="fa fa-plus"></icon>
+					<icon ng-if="item.type == 'file'" class="fa fa-cloud-upload"></icon>
+					<icon ng-if="item.type == 'assigned'" class="fa fa-mail-forward"></icon>
+					<icon ng-if="item.type == 'due'" class="fa fa-flag"></icon>
+					<icon ng-if="item.type == 'lead'" class="fa fa-building"></icon>
+					<icon ng-if="item.type == 'contact'" class="fa fa-user"></icon>
+					<icon ng-if="item.type == 'complete'" class="fa fa-check"></icon>
+					<icon ng-if="item.type == 'uncomplete'" class="fa fa-square-o"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>{{item.user}}</b> {{item.action}}</p>
+					<p ng-if="item.comment"><i>{{item.comment}}</i></p>
+					<p class="feed-date"><small>{{item.date | amDateFormat:'MMMM Do YYYY h:mm'}}</small></p>
+				</div>
+			</div>
+
+
+
+			<!-- //allows have created date -->
+
+			<div class="feed-item">
+				<div class="feed-icon">
+					<icon class="fa fa-plus"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>Company Created<b> - Website Form</p>
+					<p class="feed-date"><small>{{thisCompany.created_date | amDateFormat:'MMMM Do YYYY h:mm A'}}</small></p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+

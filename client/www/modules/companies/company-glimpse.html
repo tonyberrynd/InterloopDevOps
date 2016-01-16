@@ -1,0 +1,187 @@
+<div class="side-panel">
+
+
+	<div class="panel-head">
+		<div class="panel-close">
+			<button type="button" class="close" data-ng-click="closePanel('Save')" tooltip-placement="bottom" uib-tooltip="Cancel">
+			×
+			</button>
+
+<!-- 			<a class="btn" class="close" data-ng-click="closePanel('Save')" tooltip-placement="bottom" uib-tooltip="Save">
+				<i class="fa fa-save"></i></a>
+			</a>
+ -->
+
+			
+		</div>
+		<div class="sidepanel-title">
+			<!-- //actions -->
+			<div class="btn-group" role="group" aria-label="...">
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Email" class="btn btn-default"><icon class="icon_mail"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Call" class="btn btn-default"><icon class="icon_phone"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Chat" class="btn btn-default"><icon class="fa fa-user"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Task" class="btn btn-default"><icon class="fa fa-check"></icon></button>
+
+			  <button type="button" tooltip-placement="bottom" uib-tooltip="Doc" class="btn btn-default"><icon class="fa fa-trophy"></icon></button>
+
+	
+			</div>
+		</div>
+
+		<div class="panel-more">
+	<!-- 		<button type="button" class="more" data-ng-click="panels.close()" tooltip-placement="bottom" tooltip="Close Panel"><icon class="fa fa-ellipsis-h"></icon></button> -->
+			<div class="btn-group" uib-dropdown is-open="status.isopen">
+		      <button id="single-button" type="button" class="more" uib-dropdown-toggle ng-disabled="disabled" >
+		        ...
+		      </button>
+		      <ul class="uib-dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="single-button">
+		        <li role="menuitem"><a href="#"><icon class="fa fa-share"></icon> Share Company</a></li>
+		        <li class="divider"></li>
+		        <li role="menuitem" ng-click="closePanel('Delete')"><a href=""><span class="icon_trash"></span> Delete Company</a></li>
+		      </ul>
+		    </div>
+
+		</div>
+	</div>
+
+	<div class="panel-body grey">
+
+	<!-- panel grid -->
+	<div class="panel-grid">
+
+		<!-- Task Subject -->
+		<div class="row subject">
+			<div class="col-xs-2">
+				<div class="companyScore">
+					{{currentEntity.currentItem.score | number:1}}
+				</div>
+			</div>
+			<div class="col-xs-10" style="padding-left:0px;">
+				<input type="text" id="name" placeholder="Company Name" ng-model="currentEntity.currentItem.name" ng-blur="">
+				<small>
+					<input type="text" id="description" placeholder="Company Description" ng-model="currentEntity.currentItem.description" ng-blur="">
+					<input type="text" id="web site" placeholder="Website" ng-model="currentEntity.currentItem.website" ng-blur="">
+					<input type="text" id="phone" placeholder="Phone" ng-model="currentEntity.currentItem.phone" ng-blur="">
+				</small>
+			</div>
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-6 border-r">
+				<span class="title">
+					Account Manager
+				</span>
+				<select class="form-control" ng-options="item as item.value for item in currentEntity.pickLists.accountManager.items track by item.id" 
+					ng-model="currentEntity.currentItem.accountManager">
+				</select>
+			</div>
+
+			<div class="col-xs-6">
+			<span class="title">
+				Status
+			</span>
+			<select class="form-control" ng-options="item as item.value for item in currentEntity.pickLists.status.items track by item.id" 
+					ng-model="currentEntity.currentItem.status">
+				</select>
+
+			</div>
+		</div>
+		
+		<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Contacts
+			</span>
+			<a href="">Add a contact ...</a>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+			<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Qualifiers
+			</span>
+			</div>
+
+			<!-- Qualifiers --> 
+			<div class="row">
+			<div style="margin-top:15px;" ng-repeat="qualifier in currentEntity.qualifiers" class="no-pad col-xs-6 qual-select">	
+
+				<label for="">{{qualifier.name}}</label>
+
+				<select class="form-control" ng-options="item as item.name for item in qualifier.items track by item.id" 
+					ng-model="currentEntity.currentItem.qualifiers[qualifier.name]">
+				</select>
+			</div>
+			<!-- end row -->
+		
+
+				<!-- row -->
+		<div class="row detail ">
+			<div class="col-xs-12">
+			<span class="title">
+				Tasks
+			</span>
+			<a href="">Add a task ...</a>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+
+</div>
+
+		<!-- row -->
+	
+	<div class="panel-footer">
+	<p class="title"><small>COMPANY HISTORY</small></p>
+
+			<div class="feed-item" ng-repeat="item in thisTask.feed | orderBy: '-date'">
+				<div class="feed-icon">
+					<icon ng-if="item.type == 'created'" class="fa fa-plus"></icon>
+					<icon ng-if="item.type == 'file'" class="fa fa-cloud-upload"></icon>
+					<icon ng-if="item.type == 'assigned'" class="fa fa-mail-forward"></icon>
+					<icon ng-if="item.type == 'due'" class="fa fa-flag"></icon>
+					<icon ng-if="item.type == 'lead'" class="fa fa-building"></icon>
+					<icon ng-if="item.type == 'contact'" class="fa fa-user"></icon>
+					<icon ng-if="item.type == 'complete'" class="fa fa-check"></icon>
+					<icon ng-if="item.type == 'uncomplete'" class="fa fa-square-o"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>{{item.user}}</b> {{item.action}}</p>
+					<p ng-if="item.comment"><i>{{item.comment}}</i></p>
+					<p class="feed-date"><small>{{item.date | amDateFormat:'MMMM Do YYYY h:mm'}}</small></p>
+				</div>
+			</div>
+
+
+
+			<!-- //allows have created date -->
+
+			<div class="feed-item">
+				<div class="feed-icon">
+					<icon class="fa fa-plus"></icon>
+				</div>
+				<div class="feed-text">
+					<p><b>Company Created<b> - Website Form</p>
+					<p class="feed-date"><small>{{currentEntity.currentCompany.created_date | amDateFormat:'MMMM Do YYYY h:mm A'}}</small></p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+

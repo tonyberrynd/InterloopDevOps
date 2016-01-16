@@ -1,0 +1,47 @@
+ <div class="splash-content text-center">
+
+ <h1 class="splash-title">All Team Members</h1>
+
+<div class="form-group">
+  <input autofocus type="text" class="form-control search-views-input" id="usr" ng-model="teamSearch" placeholder="Search all team members">
+</div>
+
+
+
+
+<div class="team-list text-left" style="overflow-y:auto;" >
+
+
+	<div class="row team-item" ng-repeat="member in data.members | fuzzy: teamSearch" ng-click="goToProfile(member.id)">
+			<div class="avatar" ng-class="member.avatar_color">
+				{{getInitials(member.fullName) }}
+			</div>
+			<div class="member-name">
+				<h5>{{member.fullName}}</h3>
+				<p>{{member.email}}</p>
+			</div>
+	</div>
+
+
+
+</div>
+
+<div ng-show="(data.members | fuzzy:teamSearch).length == 0" style="margin-top:50px;">
+	<icon class="fa fa-search"></icon>
+	<p >No team members matching <b>{{teamSearch}}</b></p>
+</div>
+
+
+
+
+
+<!-- //close button -->
+
+<button class="splash-close" ng-click="$close()">
+	<icon class="bi_interface-cross"></icon>
+	<p>esc</p>
+</button>
+
+
+
+</div>

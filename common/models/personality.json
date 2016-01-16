@@ -1,0 +1,21 @@
+{
+  "name": "Personality",
+  "plural": "Personalities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "textIn": {
+      "type": "string"
+    },
+    "output": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,35 @@
+{
+  "name": "History",
+  "plural": "Histories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "entities": {
+      "type": "hasMany",
+      "model": "Entity",
+      "foreignKey": "entityId",
+      "through": "HistoryLink"
+    }
+  },
+   "mixins": {
+      "TimeStamp" : {
+        "createdAt" : "createdOn",
+        "updatedAt" : "updatedOn",
+        "required" : false
+      }
+    },
+  "acls": [],
+  "methods": []
+}
